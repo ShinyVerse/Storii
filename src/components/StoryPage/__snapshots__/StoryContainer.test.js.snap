@@ -3,5 +3,16 @@
 exports[`StoryContainer snapshot for StoryContainer 1`] = `
 <ul
   id="story"
-/>
+>
+  <li
+    className="story-entry"
+  >
+    middle
+  </li>
+  <li
+    className="story-entry"
+  >
+    beginning
+  </li>
+</ul>
 `;
