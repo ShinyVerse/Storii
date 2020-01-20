@@ -9,6 +9,7 @@ $scrollBGColor: white;
   display: flex;
   flex-direction: column;
   align-self: center;
+  word-wrap: break-all;
 }
 
 #story::-webkit-scrollbar-track
