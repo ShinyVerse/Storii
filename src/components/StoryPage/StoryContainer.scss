@@ -1,7 +1,7 @@
 $scrollBGColor: white;
 
 #story {
-  height: 70vh;
+  height: 75vh;
   width: calc(75%);
   margin-left: 3%;
   overflow: hidden;
@@ -9,7 +9,6 @@ $scrollBGColor: white;
   display: flex;
   flex-direction: column;
   align-self: center;
-  word-wrap: break-all;
 }
 
 #story::-webkit-scrollbar-track

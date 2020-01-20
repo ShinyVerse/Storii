@@ -192,7 +192,7 @@ eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../n
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"#entry-form-component {\\n  position: fixed;\\n  left: calc(11%);\\n  bottom: calc(10%);\\n  width: 90%;\\n  display: flex; }\\n\\n#entry-form {\\n  width: 75%;\\n  height: 100px;\\n  padding: 10px;\\n  border-radius: 15px 0px 0px 15px;\\n  resize: none;\\n  font-size: 1.3em; }\\n\\n#entry-form-button {\\n  padding: 5px;\\n  height: 118px;\\n  width: 10%;\\n  text-decoration: none;\\n  outline: none;\\n  color: #fff;\\n  background-color: #0489B1;\\n  border: none;\\n  border-radius: 0px 15px 15px 0px;\\n  box-shadow: 0 4px #999;\\n  font-size: 1.5em; }\\n\\n#entry-form-button:active {\\n  background-color: #086A87;\\n  box-shadow: 0 0px #666;\\n  transform: translateY(4px); }\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/components/StoryPage/EntryForm.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"#entry-form-component {\\n  position: fixed;\\n  left: calc(11%);\\n  bottom: calc(5%);\\n  width: 90%;\\n  display: flex; }\\n\\n#entry-form {\\n  width: 75%;\\n  height: 100px;\\n  padding: 10px;\\n  border-radius: 15px 0px 0px 15px;\\n  resize: none;\\n  font-size: 1.3em; }\\n\\n#entry-form-button {\\n  padding: 5px;\\n  height: 118px;\\n  width: 10%;\\n  text-decoration: none;\\n  outline: none;\\n  color: #fff;\\n  background-color: #0489B1;\\n  border: none;\\n  border-radius: 0px 15px 15px 0px;\\n  box-shadow: 0 4px #999;\\n  font-size: 1.5em; }\\n\\n#entry-form-button:active {\\n  background-color: #086A87;\\n  box-shadow: 0 0px #666;\\n  transform: translateY(4px); }\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/components/StoryPage/EntryForm.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -203,7 +203,18 @@ eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../.
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"#story {\\n  height: 70vh;\\n  width: calc(75%);\\n  margin-left: 3%;\\n  overflow: hidden;\\n  overflow-y: scroll;\\n  display: flex;\\n  flex-direction: column;\\n  align-self: center;\\n  word-wrap: break-all; }\\n\\n#story::-webkit-scrollbar-track {\\n  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);\\n  border-radius: 10px;\\n  background-color: white; }\\n\\n#story::-webkit-scrollbar {\\n  width: 12px;\\n  background-color: white; }\\n\\n#story::-webkit-scrollbar-thumb {\\n  border-radius: 10px;\\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);\\n  background-color: #0489B1; }\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/components/StoryPage/StoryContainer.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"#story {\\n  height: 75vh;\\n  width: calc(75%);\\n  margin-left: 3%;\\n  overflow: hidden;\\n  overflow-y: scroll;\\n  display: flex;\\n  flex-direction: column;\\n  align-self: center; }\\n\\n#story::-webkit-scrollbar-track {\\n  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);\\n  border-radius: 10px;\\n  background-color: white; }\\n\\n#story::-webkit-scrollbar {\\n  width: 12px;\\n  background-color: white; }\\n\\n#story::-webkit-scrollbar-thumb {\\n  border-radius: 10px;\\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);\\n  background-color: #0489B1; }\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/components/StoryPage/StoryContainer.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/StoryPage/StoryEntry.scss":
+/*!*******************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/StoryPage/StoryEntry.scss ***!
+  \*******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \".story-entry {\\n  font-size: 1.2em;\\n  padding: 10px;\\n  margin: 5px;\\n  background-color: #ffd48a;\\n  border-radius: 2px;\\n  list-style: none;\\n  word-break: break-all; }\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/components/StoryPage/StoryEntry.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -440,7 +451,18 @@ eval("var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return StoryEntry; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction StoryEntry(_ref) {\n  var entry = _ref.entry,\n      index = _ref.index;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"li\", {\n    className: \"story-entry\"\n  }, entry);\n}\n\n//# sourceURL=webpack:///./src/components/StoryPage/StoryEntry.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return StoryEntry; });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _StoryEntry_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StoryEntry.scss */ \"./src/components/StoryPage/StoryEntry.scss\");\n/* harmony import */ var _StoryEntry_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_StoryEntry_scss__WEBPACK_IMPORTED_MODULE_1__);\n\n\nfunction StoryEntry(_ref) {\n  var entry = _ref.entry,\n      index = _ref.index;\n  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(\"li\", {\n    className: \"story-entry\"\n  }, entry);\n}\n\n//# sourceURL=webpack:///./src/components/StoryPage/StoryEntry.js?");
+
+/***/ }),
+
+/***/ "./src/components/StoryPage/StoryEntry.scss":
+/*!**************************************************!*\
+  !*** ./src/components/StoryPage/StoryEntry.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var api = __webpack_require__(/*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n            var content = __webpack_require__(/*! !../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/sass-loader/dist/cjs.js!./StoryEntry.scss */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/StoryPage/StoryEntry.scss\");\n\n            content = content.__esModule ? content.default : content;\n\n            if (typeof content === 'string') {\n              content = [[module.i, content, '']];\n            }\n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = api(content, options);\n\nvar exported = content.locals ? content.locals : {};\n\n\n\nmodule.exports = exported;\n\n//# sourceURL=webpack:///./src/components/StoryPage/StoryEntry.scss?");
 
 /***/ }),
 
