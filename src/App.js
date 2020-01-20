@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import StoryContainer from './components/StoryPage/StoryContainer';
 import EntryForm from './components/StoryPage/EntryForm';
+import './App.scss'
 
 export default function App() {
   let [story, updateStory] = useState([
