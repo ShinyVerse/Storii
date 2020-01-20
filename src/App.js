@@ -5,7 +5,8 @@ import './App.scss'
 
 export default function App() {
   let [story, updateStory] = useState([
-    'middle', 'beginning'
+    'middle', 'beginning','middle', 'beginning','middle', 'beginning','middle', 'beginning','middle', 'beginning','middle', 'beginning','middle', 'beginning',
+    'middle', 'beginning','middle', 'beginning','middle', 'beginning','middle', 'beginning','middle', 'beginning','middle', 'beginning','middle', 'beginning',
   ])
 
   const addEntryToStory = (entry) => {
@@ -13,7 +14,7 @@ export default function App() {
   }
 
   return (
-    <div>
+    <div id='app'>
       <StoryContainer story={story}/>
       <EntryForm onSubmit={(entry) => {addEntryToStory(entry)} }/>
     </div>

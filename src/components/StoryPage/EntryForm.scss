@@ -7,13 +7,30 @@
 }
 
 #entry-form {
-  width: 80%;
+  width: 75%;
   height: 100px;
   padding: 10px;
+  border-radius: 15px 0px 0px 15px;
   resize: none;
+  font-size: 1.3em;
 }
 
 #entry-form-button {
   padding: 5px;
-  height: 122px;
+  height: 118px;
+  width: 10%;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #0489B1;
+  border: none;
+  border-radius: 0px 15px 15px 0px;
+  box-shadow: 0 4px #999;
+  font-size: 1.5em;
+}
+
+#entry-form-button:active {
+  background-color: #086A87;
+  box-shadow: 0 0px #666;
+  transform: translateY(4px);
 }
