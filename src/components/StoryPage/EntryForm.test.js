@@ -3,7 +3,6 @@ import { shallow, render } from 'enzyme';
 import renderer from 'react-test-renderer';
 import ReactTestUtils from 'react-dom/test-utils';
 import ReactDOM from 'react-dom'
-import { act } from 'react-dom/test-utils';
 
 import EntryForm from './EntryForm';
 
