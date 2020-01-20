@@ -10,7 +10,7 @@
   "main": "./src/index.js",
   "scripts": {
     "test": "jest --watchAll",
-    "build": "webpack"
+    "build": "webpack --watch"
   },
   "keywords": [],
   "author": "",

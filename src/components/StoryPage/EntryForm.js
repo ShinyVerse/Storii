@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './EntryForm.scss';
 
 export default function EntryForm({onSubmit}) {
   let [entry, setEntry] = useState("pickles");
@@ -8,13 +9,13 @@ export default function EntryForm({onSubmit}) {
   }
 
   return (
-    <div>
-      <input
+    <div id='entry-form-component'>
+      <textarea
         id="entry-form"
         name="entry-form"
         onChange={handleChange}
         value={entry}
-      ></input>
+      ></textarea>
       <input
         type='button'
         id="entry-form-button"

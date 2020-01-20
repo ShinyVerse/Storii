@@ -1,0 +1,19 @@
+#entry-form-component {
+  position: fixed;
+  left: calc(11%);
+  bottom: calc(10%);
+  width: 90%;
+  display: flex;
+}
+
+#entry-form {
+  width: 80%;
+  height: 100px;
+  padding: 10px;
+  resize: none;
+}
+
+#entry-form-button {
+  padding: 5px;
+  height: 122px;
+}
