@@ -1,5 +1,5 @@
 {
-  "name": "todoPractiseTesting",
+  "name": "storii",
   "jest": {
     "setupFilesAfterEnv": [
       "./src/enzyme.setup.js"
@@ -10,7 +10,8 @@
   "main": "./src/index.js",
   "scripts": {
     "test": "jest --watchAll",
-    "build": "webpack --watch"
+    "build": "webpack-dev-server --inline"
+ 
   },
   "keywords": [],
   "author": "",
@@ -35,6 +36,7 @@
     "@babel/runtime": "^7.6.2",
     "node-sass": "^4.14.1",
     "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react-dom": "^16.9.0",
+    "webpack-dev-server": "^3.11.0"
   }
 }

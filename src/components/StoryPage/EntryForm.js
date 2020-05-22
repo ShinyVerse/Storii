@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './EntryForm.scss';
 
 export default function EntryForm({onSubmit}) {
-  let [entry, setEntry] = useState("pickles");
+  let [entry, setEntry] = useState("");
 
   const handleChange = ({target}) => {
     setEntry(target.value);
