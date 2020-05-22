@@ -1,30 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import StoryContainer from './components/StoryPage/StoryContainer';
 import EntryForm from './components/StoryPage/EntryForm';
 import './App.scss'
+const socket = new WebSocket("wss://javascript.info/article/websocket/chat/ws");
 
 export default function App() {
-  let [story, updateStory] = useState([
-  ])
-
-  let socket = new WebSocket("wss://javascript.info/article/websocket/chat/ws");
+  console.log('HI! I AM APP')
+  const [story, updateStory] = useState([])
+  useEffect(() => {    console.log('HI!')
+    console.log(story);
+  }, [story]); 
 
   socket.onmessage = (event) => {
     updateStory([...story, event.data]);
   };
 
 
-  socket.onopen = () => {
-    console.log("[open] Connection established");
-  };
+  // socket.onopen = () => {
+  //   console.log("[open] Connection established");
+
+  // };
 
   const addEntryToStory = (entry) => {
-
     //update own state
     // add entry to db
     //listen for any incoming entries
     //if new entry by other writer then show on page.
-    updateStory([...story, entry]);
     socket.send(entry);
   }
   //My name is Nima
