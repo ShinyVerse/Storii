@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import StoryContainer from './components/StoryPage/StoryContainer';
 import EntryForm from './components/StoryPage/EntryForm';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.scss'
+
+import LandingPage from "./Pages/LandingPage/LandingPage";
+
 const socket = new WebSocket("wss://javascript.info/article/websocket/chat/ws");
 
 export default function App() {
   console.log('HI! I AM APP')
   const [story, updateStory] = useState([])
+  
   useEffect(() => {    console.log('HI!')
     console.log(story);
   }, [story]); 
@@ -47,8 +52,14 @@ socket.onerror = function(error) {
 };
   return (
     <div id='app'>
+      <h1 style={{color: "black"}}>Hello world!</h1>
       <StoryContainer story={story}/>
       <EntryForm onSubmit={(entry) => {addEntryToStory(entry)} }/>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+        </Switch>
+      </Router>
     </div>
   )
 }
