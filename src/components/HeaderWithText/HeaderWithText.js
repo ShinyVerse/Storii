@@ -1,6 +1,6 @@
 import React from 'react'
 
-const HeaderWithText = ({header, text}) => {
+export const HeaderWithText = ({header, text}) => {
   return (
     <div>
       <h1 data-test="header">{header}</h1>
@@ -9,4 +9,3 @@ const HeaderWithText = ({header, text}) => {
   )
 }
 
-export default HeaderWithText;

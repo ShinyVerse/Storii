@@ -28,7 +28,11 @@ module.exports = {
             'css-loader',
             // Compiles Sass to CSS
             'sass-loader', ]
-      }
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i, 
+        loader: "url-loader?name=dist/images/[name].[ext]"
+       }
     ]
   }
 }

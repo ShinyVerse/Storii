@@ -1,12 +1,20 @@
 import React from 'react'
-import HeaderWithText from "../../components/HeaderWithText/HeaderWithText"
+import { HeaderWithText } from "../../components/HeaderWithText/HeaderWithText"
+import { Image } from "../../components/Image/Image"
 
-const LandingPage = () => {
+import img from '../../assets/img/iconLong.png';
+
+
+export const LandingPage = () => {
   return (
     <div>
-      <HeaderWithText />
+      <HeaderWithText header='HEADER!'/>
+      <Image 
+        src={img}
+        type='long'
+        alt='storii join instructions'
+      />
     </div>
   )
 }
 
-export default LandingPage;

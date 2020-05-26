@@ -4,7 +4,7 @@ import EntryForm from './components/StoryPage/EntryForm';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.scss'
 
-import LandingPage from "./Pages/LandingPage/LandingPage";
+import {LandingPage} from "./Pages/LandingPage/LandingPage";
 
 const socket = new WebSocket("wss://javascript.info/article/websocket/chat/ws");
 
