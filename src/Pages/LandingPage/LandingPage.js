@@ -13,9 +13,9 @@ export const LandingPage = () => {
         alt='storii join instructions'
       /> */}
 
-      const handleSubmit = (state) => {
-        console.log("EXAMPLE OF BIG BOY", state);
-      }
+    const handleSubmit = (state) => {
+      console.log("EXAMPLE OF BIG BOY", state);
+    }
 
   return (
     <div>
