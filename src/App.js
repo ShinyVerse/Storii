@@ -50,11 +50,12 @@ export default function App() {
 socket.onerror = function(error) {
   alert(`[error] ${error.message}`);
 };
+
+{/* <h1 style={{color: "black"}}>Hello world!</h1>
+      <StoryContainer story={story}/>
+      <EntryForm onSubmit={(entry) => {addEntryToStory(entry)} }/> */}
   return (
     <div id='app'>
-      <h1 style={{color: "black"}}>Hello world!</h1>
-      <StoryContainer story={story}/>
-      <EntryForm onSubmit={(entry) => {addEntryToStory(entry)} }/>
       <Router>
         <Switch>
           <Route exact path="/" component={LandingPage} />

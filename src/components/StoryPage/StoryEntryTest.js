@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 
 import StoryEntry from './StoryEntry';
 
-describe('StoryEntry', () => {
+describe.skip('StoryEntry', () => {
   const entry = 'something here';
 
   test('renders a ul with id story to the page', () => {

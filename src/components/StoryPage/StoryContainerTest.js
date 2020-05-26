@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer';
 import StoryContainer from './StoryContainer';
 import StoryEntry from './StoryEntry';
 
-describe('StoryContainer', () => {
+describe.skip('StoryContainer', () => {
   const entries = [
     'middle',
     'beginning'
