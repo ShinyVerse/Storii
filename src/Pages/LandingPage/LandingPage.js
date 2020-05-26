@@ -8,7 +8,7 @@ import img from '../../assets/img/iconLong.png';
 export const LandingPage = () => {
   return (
     <div>
-      <HeaderWithText header='HEADER!'/>
+      <HeaderWithText header='Storii'/>
       <Image 
         src={img}
         type='long'
