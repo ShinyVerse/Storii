@@ -5,7 +5,6 @@ import { Form } from "../../components/Form/Form"
 
 import img from '../../assets/img/iconLong.png';
 
-
 export const LandingPage = () => {
   {/* <Image 
         src={img}
@@ -25,16 +24,26 @@ export const LandingPage = () => {
           penName: "",
           email:"",
           password: "",
-          password2: ""
+          password2: "",
+          selection: "one"
         }}
         handleSubmit={handleSubmit}
+
       >
         {
           ({state, onChange}) => { 
             const {penName, email, password, password2} = state;
             return(
               <div>
-                <input 
+                  
+            <select 
+              value={state.selection} 
+              data-test="select"
+              name="selection"
+              onChange={onChange}>
+              {selection.map(option => <option key={option} value={option}>{option}</option>)}
+            </select>
+                {/* <input 
                 name="penName" 
                 onChange={onChange} 
                 value={penName || ""}
@@ -57,7 +66,7 @@ export const LandingPage = () => {
                 onChange={onChange} 
                 value={password2 || ""}
                 type="text"
-                />
+                /> */}
             </div>
             )
            }  

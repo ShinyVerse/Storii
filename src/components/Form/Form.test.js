@@ -5,13 +5,18 @@ import { Form } from "./Form"
 
 describe('Form', () => {
   const onSubmitSpy = jest.fn()
-  const defaultProps = {
-    handleSubmit: onSubmitSpy,
-    initState: {
-      testInput: ""
+  let defaultProps; 
+
+  beforeEach(() => {
+    defaultProps = {
+      handleSubmit: onSubmitSpy,
+      initState: {
+        
+      }
     }
-  }
+  })
   it('renders form container to page', () => {
+
     const wrapper = shallow(
       <Form {...defaultProps}>
         {() => {}}
@@ -35,30 +40,69 @@ describe('Form', () => {
     expect(divElement.text()).toBe("hello");
   });
 
-  it('can trigger onChange event ', () => {
+  it('can trigger onChange event on input', () => {
+    defaultProps.initState.testInput = "";
 
     const wrapper = shallow(
       <Form {...defaultProps}>
         {({state, onChange}) => {
-          return <input 
-          data-test="input"
+          return (<input 
+          data-test="testInput"
           name="testInput"
-          value={state.div || "hello"}
+          value={state.testInput || "hello"}
           onChange={onChange}
-         />
+         />)
         }}
       </Form>);
+      
+    let inputElement = wrapper.find('[data-test="testInput"]')
+      
+    inputElement.simulate('change', 
+      { target: { name: 'testInput', value: 'CHANGED' }}
+    )
 
-    let inputElement = wrapper.find('[data-test="input"]');
-    
-    inputElement.simulate('change', {
-      target: { value: 'byebye' }
-    })
-    wrapper.update();
+    inputElement = wrapper.find('[data-test="testInput"]')
 
-    inputElement = wrapper.find('[data-test="input"]');
+    expect(inputElement.prop('value')).toBe('CHANGED');
+  });
 
-    expect(inputElement.text()).toBe("hello");
+  it('can trigger onChange event with a dropdown', () => {
+    defaultProps.initState.selection = "one";
+
+    const selection = ['one', 'two', 'three'];
+    const wrapper = shallow(
+      <Form {...defaultProps}>
+        {({state, onChange}) => {
+
+          return (
+            <select 
+            value={state.selection} 
+            data-test="select"
+            name="selection"
+            onChange={onChange}>
+            {selection.map(option => <option key={option} value={option}>{option}</option>)}
+          </select>
+          )
+        }}
+      </Form>);
+      
+    let selectElement = wrapper.find('[data-test="select"]');
+
+    selectElement.simulate('change', 
+      { target: { name: 'selection', value: selection[1] }}
+    )
+
+    selectElement = wrapper.find('[data-test="select"]')
+
+    expect(selectElement.prop('value')).toBe('two');
+  });
+
+  it('can trigger onChange event with checkboxes', () => {
+     
+  });
+
+  it('returns current state on submitting', () => {
+     
   });
 });
 
