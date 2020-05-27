@@ -16,33 +16,54 @@ export const LandingPage = () => {
       console.log("EXAMPLE OF BIG BOY", state);
     }
 
+   
+
   return (
     <div>
       <HeaderWithText header='Storii'/>
       <Form
         initState = {{
-          penName: "",
-          email:"",
-          password: "",
-          password2: "",
-          selection: "one"
+          // penName: "",
+          // email:"",
+          // password: "",
+          // password2: "",
+          // selection: "one",
+          tags: []
         }}
         handleSubmit={handleSubmit}
-
       >
         {
-          ({state, onChange}) => { 
+          ({state, onCheckboxChange}) => { 
             const {penName, email, password, password2} = state;
+
             return(
               <div>
+
+             <label>
+                fantasy:
+                <input
+                  name="fantasy"
+                  type="checkbox"
+                  belongsto="tags"
+                  onChange={onCheckboxChange} />
+              </label>
+              <label>
+                sci-fi:
+                <input
+                  name="sci-fi"
+                  type="checkbox"
+                  belongsto="tags"
+                  onChange={onCheckboxChange} />
+              </label>
+     
                   
-            <select 
+            {/* <select 
               value={state.selection} 
               data-test="select"
               name="selection"
               onChange={onChange}>
               {selection.map(option => <option key={option} value={option}>{option}</option>)}
-            </select>
+            </select> */}
                 {/* <input 
                 name="penName" 
                 onChange={onChange} 

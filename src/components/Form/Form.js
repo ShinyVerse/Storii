@@ -11,6 +11,23 @@ export const Form = (props) => {
       [e.target.name]: e.target.value
     });
   }
+
+  const onCheckboxChange = (e) => {
+      const {name, checked} = e.target;
+      const arrayName = e.target.attributes.belongsto.value;
+      const array = state[arrayName];
+
+      if (checked) {
+        array.push(name)
+
+        onChange({target: {name: arrayName, value: array}});
+        return;
+      }
+      array = array.filter(item => item !== name);
+     
+      onChange({target: {name: arrayName, value: array}});
+      return;
+  }
   
   const onSubmit = (e) => {
     e.preventDefault()
@@ -21,7 +38,8 @@ export const Form = (props) => {
     <form onSubmit={onSubmit}>
      {props.children({
        state,
-       onChange
+       onChange,
+       onCheckboxChange
      })}
      <input type="submit" value="SUBMIT ME"/>
     </form>
