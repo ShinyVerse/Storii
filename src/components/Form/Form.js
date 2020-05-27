@@ -14,7 +14,8 @@ export const Form = (props) => {
   const onCheckboxChange = (e) => {
     const { name, checked } = e.target;
     const arrayName = e.target.attributes.belongsto.value;
-    const array = state[arrayName];
+
+    let array = state[arrayName];
 
     if (checked) {
       array.push(name);

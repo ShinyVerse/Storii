@@ -101,7 +101,42 @@ describe("Form", () => {
     expect(selectElement.prop("value")).toBe("two");
   });
 
-  it("can trigger onCheckBoxChange event with checkboxes", () => {});
+  it("can trigger onCheckBoxChange event with checkboxes", () => {
+    defaultProps.initState.tags = [];
+
+    const wrapper = shallow(
+      <Form {...defaultProps}>
+        {({ state, onCheckboxChange }) => {
+          return (
+            <input
+              data-test="checkbox"
+              name="fantasy"
+              type="checkbox"
+              belongsto="tags"
+              onChange={onCheckboxChange}
+            />
+          );
+        }}
+      </Form>
+    );
+
+    const checkboxElement = wrapper.find('[data-test="checkbox"]');
+
+    checkboxElement.simulate("change", {
+      target: {
+        name: "fantasy",
+        checked: true,
+        attributes: { belongsto: { value: "tags" } },
+      },
+    });
+
+    const submitElement = wrapper.find('[data-test="submit"]');
+
+    submitElement.simulate("click");
+
+    expect(onSubmitSpy).toHaveBeenCalledTimes(1);
+    expect(onSubmitSpy).toHaveBeenCalledWith({ tags: ["fantasy"] });
+  });
 
   it("returns current state on submitting", () => {
     defaultProps.initState.testInput = "";
