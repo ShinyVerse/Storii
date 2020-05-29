@@ -16,7 +16,7 @@ describe("Form", () => {
   });
   it("renders form container to page", () => {
     const wrapper = shallow(<Form {...defaultProps}>{() => {}}</Form>);
-    const formElement = wrapper.find("form");
+    const formElement = wrapper.find('[data-test="form"]');
 
     expect(formElement.length).toBe(1);
   });
