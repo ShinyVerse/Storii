@@ -5,7 +5,11 @@ import { Form } from "../../components/Form/Form";
 
 import img from "../../assets/img/iconLong.png";
 
-export const LandingPage = () => {
+import { connect } from "react-redux";
+
+import { registerUser } from "../../actions/auth";
+
+export const LandingPage = ({ registerUser }) => {
   const [formType, setFormType] = useState("register");
 
   const checkFormIsPopulated = (state) => {
@@ -35,6 +39,9 @@ export const LandingPage = () => {
         return;
       }
     }
+    console.log("WHAT ARE YOU?", registerUser);
+
+    registerUser(state);
     console.log("EXAMPLE OF BIG BOY", state);
   };
 
@@ -151,3 +158,7 @@ export const LandingPage = () => {
     </div>
   );
 };
+
+const mapStateToProps = () => {};
+
+export default connect(mapStateToProps, { registerUser })(LandingPage);

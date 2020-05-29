@@ -3,8 +3,10 @@ import StoryContainer from "./components/StoryPage/StoryContainer";
 import EntryForm from "./components/StoryPage/EntryForm";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
+import { Provider } from "react-redux";
 
 import { LandingPage } from "./Pages/LandingPage/LandingPage";
+import store from "./store";
 
 const socket = new WebSocket("wss://javascript.info/article/websocket/chat/ws");
 
@@ -54,12 +56,14 @@ export default function App() {
       <EntryForm onSubmit={(entry) => {addEntryToStory(entry)} }/> */
   }
   return (
-    <div id="app">
-      <Router>
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-        </Switch>
-      </Router>
-    </div>
+    <Provider store={store}>
+      <div id="app">
+        <Router>
+          <Switch>
+            <Route exact path="/" component={LandingPage} />
+          </Switch>
+        </Router>
+      </div>
+    </Provider>
   );
 }
