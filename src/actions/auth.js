@@ -2,16 +2,15 @@ import * as types from "./types";
 import axios from "axios";
 
 export const registerUser = ({ penName, email, password }) => async (
-  dispatch
+  dispatch,
 ) => {
-  console.log("ACTION HERER HEREHRHEHR");
-
   const newUser = {
     penName,
     email,
     password,
   };
-  console.log("newUser", newUser);
+
+  console.log("GETTING HERE IN TEST", newUser);
 
   const config = {
     headers: {
@@ -21,12 +20,26 @@ export const registerUser = ({ penName, email, password }) => async (
 
   try {
     const res = await axios.post(
-      "https://storii-server.herokuapp.com/users",
+      "http://localhost:4000/users/",
       newUser,
-      config
+      config,
     );
-    console.log(res.data);
+
+    if (res.data.status === 200) {
+      dispatch({
+        type: types.REGISTER_SUCCESS,
+        payload: res.data,
+      });
+    } else {
+      dispatch({
+        type: types.REGISTER_FAIL,
+        payload: res.data,
+      });
+    }
   } catch (err) {
-    console.error(err);
+    dispatch({
+      type: types.SYSTEM_ERROR,
+      payload: res.data,
+    });
   }
 };

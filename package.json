@@ -6,7 +6,8 @@
     ],
     "moduleNameMapper": {
       "\\.(s?css|less)$": "identity-obj-proxy"
-    }
+    },
+    "automock": true
   },
   "version": "1.0.0",
   "description": "",

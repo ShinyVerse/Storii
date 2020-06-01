@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 
 import { registerUser } from "../../actions/auth";
 
-export const LandingPage = ({ registerUser }) => {
+const LandingPage = ({ registerUser }) => {
   const [formType, setFormType] = useState("register");
 
   const checkFormIsPopulated = (state) => {
@@ -28,7 +28,7 @@ export const LandingPage = ({ registerUser }) => {
     return false;
   };
 
-  const handleSubmit = (state) => {
+  const handleSubmit = async (state) => {
     if (!checkFormIsPopulated(state)) {
       alert("you need to fill in the form");
       return;
@@ -39,9 +39,8 @@ export const LandingPage = ({ registerUser }) => {
         return;
       }
     }
-    console.log("WHAT ARE YOU?", registerUser);
 
-    registerUser(state);
+    await registerUser(state);
     console.log("EXAMPLE OF BIG BOY", state);
   };
 
@@ -54,10 +53,10 @@ export const LandingPage = ({ registerUser }) => {
         <div>
           <Form
             initState={{
-              penName: "",
-              email: "",
-              password: "",
-              password2: "",
+              penName: "Name",
+              email: "email@email.com",
+              password: "123456",
+              password2: "123456",
             }}
             btnName="create"
             handleSubmit={handleSubmit}
@@ -159,6 +158,6 @@ export const LandingPage = ({ registerUser }) => {
   );
 };
 
-const mapStateToProps = () => {};
+const mapStateToProps = () => ({});
 
 export default connect(mapStateToProps, { registerUser })(LandingPage);

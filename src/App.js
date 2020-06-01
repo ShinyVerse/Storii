@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import { Provider } from "react-redux";
 
-import { LandingPage } from "./Pages/LandingPage/LandingPage";
+import LandingPage from "./Pages/LandingPage/LandingPage";
 import store from "./store";
 
 const socket = new WebSocket("wss://javascript.info/article/websocket/chat/ws");
