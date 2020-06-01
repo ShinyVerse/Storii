@@ -6,15 +6,18 @@ describe("authReducer", () => {
     const dummyCurrentState = {
       dummy: "I should be the only thing",
     };
-    const dummyAction = {
+
+    const fakeAction = {
       type: "unrelated action",
     };
-    expect(authReducer(dummyCurrentState, dummyAction)).toEqual(
-      dummyCurrentState
+
+    expect(authReducer(dummyCurrentState, fakeAction)).toEqual(
+      dummyCurrentState,
     );
   });
-  test("update state on when user registers successfuly", () => {
-    const dummyAction = {
+
+  test("update state on when user registers successfully", () => {
+    const action = {
       type: types.REGISTER_SUCCESS,
       payload: "tokenmate",
     };
@@ -22,12 +25,12 @@ describe("authReducer", () => {
     const expectedState = {
       isAuthenticated: null,
       user: null,
-      token: dummyAction.payload,
+      token: action.payload,
       isLoading: null,
     };
 
-    const state = authReducer(undefined, dummyAction);
+    const state = authReducer(undefined, action);
 
-    expect(state.token).toBe(expectedState);
+    expect(state).toEqual(expectedState);
   });
 });
