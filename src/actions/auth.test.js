@@ -12,7 +12,7 @@ describe.only("auth action", () => {
       password: "123445",
     };
     try {
-      const response = await registerUser(user);
+      const response = registerUser(user);
       let dispatchResult;
       const dispatch = (action) => {
         dispatchResult = action;

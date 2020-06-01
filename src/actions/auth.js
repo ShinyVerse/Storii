@@ -1,7 +1,7 @@
 import * as types from "./types";
 import axios from "axios";
 
-export const registerUser = async ({ penName, email, password }) => {
+export const registerUser = ({ penName, email, password }) => {
   return async (dispatch) => {
     const newUser = {
       penName,
