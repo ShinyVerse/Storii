@@ -1,5 +1,6 @@
 import mockAxios from "axios";
 import { registerUser } from "./auth.js";
+import { REGISTER_SUCCESS } from "./types";
 
 jest.mock("axios");
 
@@ -33,11 +34,11 @@ describe("auth action", () => {
 
       expect(dispatchResult).toEqual({
         payload: "DINOSAUR",
-        type: "REGISTER_SUCCESS",
+        type: REGISTER_SUCCESS,
       });
     } catch (err) {
       console.log("error, ", err);
-      expect(1).toBe(3);
+      expect(true).toBe(false);
     }
   });
 });
