@@ -2,7 +2,7 @@ import * as types from "./types";
 import axios from "axios";
 
 export const registerUser = ({ penName, email, password }) => async (
-  dispatch,
+  dispatch
 ) => {
   const newUser = {
     penName,
@@ -20,7 +20,7 @@ export const registerUser = ({ penName, email, password }) => async (
     const res = await axios.post(
       "http://localhost:4000/users",
       newUser,
-      config,
+      config
     );
 
     dispatch({
@@ -28,6 +28,11 @@ export const registerUser = ({ penName, email, password }) => async (
       payload: res.data.token,
     });
   } catch (err) {
-    console.error(err);
+    console.log("ERRRRROR", err);
+
+    dispatch({
+      type: types.SET_ALERT,
+      payload: err.msg,
+    });
   }
 };
