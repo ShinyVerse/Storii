@@ -21,7 +21,7 @@ describe("auth action", () => {
   });
   it("Register user", async () => {
     mockAxios.post.mockImplementationOnce(
-      async () => await Promise.resolve({ data: { token: "DINOSAUR" } })
+      async () => await Promise.resolve({ data: { token: "DINOSAUR" } }),
     );
 
     try {
@@ -33,7 +33,7 @@ describe("auth action", () => {
       expect(mockAxios.post).toHaveBeenCalledWith(
         "http://localhost:4000/users",
         user,
-        { headers: { "Content-Type": "application/json" } }
+        { headers: { "Content-Type": "application/json" } },
       );
 
       expect(dispatch).toHaveBeenCalledWith({
@@ -46,7 +46,7 @@ describe("auth action", () => {
   });
   it("dispatches CLEAR_ALERT when successful", async () => {
     mockAxios.post.mockImplementationOnce(
-      async () => await Promise.resolve({ data: { token: "DINOSAUR" } })
+      async () => await Promise.resolve({ data: { token: "DINOSAUR" } }),
     );
 
     try {
@@ -66,7 +66,7 @@ describe("auth action", () => {
       async () =>
         await Promise.reject({
           response: { data: { msg: "user already exists" } },
-        })
+        }),
     );
 
     try {
