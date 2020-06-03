@@ -8,8 +8,9 @@ import img from "../../assets/img/iconLong.png";
 import { connect } from "react-redux";
 
 import { registerUser } from "../../actions/auth";
+import { setAlert, clearAlert } from "../../actions/alert";
 
-const LandingPage = ({ registerUser }) => {
+const LandingPage = ({ registerUser, setAlert, clearAlert }) => {
   const [formType, setFormType] = useState("register");
 
   const checkFormIsPopulated = (state) => {
@@ -30,19 +31,21 @@ const LandingPage = ({ registerUser }) => {
 
   const handleSubmit = async (state) => {
     if (!checkFormIsPopulated(state)) {
-      alert("you need to fill in the form");
+      setAlert("you need to fill in the form");
       return;
     }
     if (formType === "register") {
       if (!checkPassword(state)) {
-        alert("PASSWORDS NOT THE SAME");
+        setAlert("PASSWORDS NOT THE SAME");
         return;
       }
     }
-    console.log("WHAT ARE YOU?", registerUser);
-
-    await registerUser(state);
-    console.log("EXAMPLE OF BIG BOY", state);
+    try {
+      await registerUser(state);
+    } catch (err) {
+      console.error(err);
+      setAlert(err.msg);
+    }
   };
 
   return (
@@ -54,8 +57,8 @@ const LandingPage = ({ registerUser }) => {
         <div>
           <Form
             initState={{
-              penName: "bob",
-              email: "bob@builder.com",
+              penName: "laursy",
+              email: "laursy@laura.com",
               password: "123456",
               password2: "123456",
             }}
@@ -161,4 +164,6 @@ const LandingPage = ({ registerUser }) => {
 
 const mapStateToProps = () => ({});
 
-export default connect(mapStateToProps, { registerUser })(LandingPage);
+export default connect(mapStateToProps, { registerUser, setAlert, clearAlert })(
+  LandingPage
+);
