@@ -42,7 +42,6 @@ const LandingPage = ({ registerUser, setAlert, clearAlert }) => {
     }
     try {
       await registerUser(state);
-      clearAlert();
     } catch (err) {
       console.error(err);
       setAlert(err.msg);

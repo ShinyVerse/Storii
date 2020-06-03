@@ -22,17 +22,17 @@ export const registerUser = ({ penName, email, password }) => async (
       newUser,
       config
     );
-
+    dispatch({
+      type: types.CLEAR_ALERT,
+    });
     dispatch({
       type: types.REGISTER_SUCCESS,
       payload: res.data.token,
     });
   } catch (err) {
-    console.log("ERRRRROR", err);
-
     dispatch({
       type: types.SET_ALERT,
-      payload: err.msg,
+      payload: err.response.data.msg,
     });
   }
 };
