@@ -6,6 +6,7 @@ import "./App.scss";
 import { Provider } from "react-redux";
 
 import LandingPage from "./Pages/LandingPage/LandingPage";
+import Alert from "./components/Alert/Alert";
 import store from "./store";
 
 const socket = new WebSocket("wss://javascript.info/article/websocket/chat/ws");
@@ -58,6 +59,7 @@ export default function App() {
   return (
     <Provider store={store}>
       <div id="app">
+        <Alert />
         <Router>
           <Switch>
             <Route exact path="/" component={LandingPage} />
