@@ -1,5 +1,5 @@
-import { setAlert, removeAlert } from "./alert.js";
-import { SET_ALERT } from "./types";
+import { setAlert, clearAlert } from "./alert.js";
+import { SET_ALERT, CLEAR_ALERT } from "./types";
 
 describe("alert action", () => {
   it("setAlert", () => {
@@ -24,5 +24,22 @@ describe("alert action", () => {
     }
   });
 
-  it("removeAlert", async () => {});
+  it("clearAlert", () => {
+    try {
+      const response = clearAlert();
+
+      let dispatchResult;
+      const dispatch = (action) => {
+        dispatchResult = action;
+      };
+
+      response(dispatch);
+      expect(dispatchResult).toEqual({
+        type: CLEAR_ALERT,
+      });
+    } catch (err) {
+      console.error(err);
+      expect(true).toBe(false);
+    }
+  });
 });
