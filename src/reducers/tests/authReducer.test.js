@@ -2,7 +2,7 @@ import authReducer from "../authReducer";
 import * as types from "../../actions/types";
 
 describe("authReducer", () => {
-  test("should return default state on unrelated action type", () => {
+  it("should return default state on unrelated action type", () => {
     const dummyCurrentState = {
       dummy: "I should be the only thing",
     };
@@ -16,7 +16,7 @@ describe("authReducer", () => {
     );
   });
 
-  test("update state on when user registers successfully", () => {
+  it("update state on when user registers successfully", () => {
     const action = {
       type: types.REGISTER_SUCCESS,
       payload: "tokenmate",
