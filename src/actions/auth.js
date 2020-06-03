@@ -21,7 +21,6 @@ export const registerUser = ({ penName, email, password }) => {
         newUser,
         config,
       );
-      console.log("getting here");
 
       dispatch({
         type: types.REGISTER_SUCCESS,

@@ -1,7 +1,12 @@
-const mockAxios = require("axios");
+import mockAxios from "axios";
 import { registerUser } from "./auth.js";
 
-describe.only("auth action", () => {
+jest.mock("axios");
+
+describe("auth action", () => {
+  beforeEach(() => {
+    jest.clearAllMocks;
+  });
   it("Register user", async () => {
     mockAxios.post.mockImplementationOnce(
       async () => await Promise.resolve({ data: { token: "DINOSAUR" } }),
