@@ -3,6 +3,15 @@ const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
+  entry: './src/index.js',
+  output: {
+    filename: 'main.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  devServer: {
+    hot: true,
+    contentBase: path.join(__dirname, 'dist')
+  }, 
   module: {
     rules: [
       {
@@ -19,7 +28,11 @@ module.exports = {
             'css-loader',
             // Compiles Sass to CSS
             'sass-loader', ]
-      }
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i, 
+        loader: "url-loader?name=dist/images/[name].[ext]"
+       }
     ]
   }
 }

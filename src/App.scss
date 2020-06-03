@@ -1,9 +1,12 @@
 #app {
-  height: 95vh;
-  width: 95vw;
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'PT Sans', sans-serif;
   align-self: center;
+  font-family: 'Caveat', cursive;
 }
