@@ -33,4 +33,21 @@ describe("authReducer", () => {
 
     expect(state).toEqual(expectedState);
   });
+  it("update state when user logs in successfully", () => {
+    const action = {
+      type: types.LOGIN_SUCCESS,
+      payload: "tokenmate",
+    };
+
+    const expectedState = {
+      isAuthenticated: true,
+      user: null,
+      token: action.payload,
+      isLoading: null,
+    };
+
+    const state = authReducer(undefined, action);
+
+    expect(state).toEqual(expectedState);
+  });
 });
