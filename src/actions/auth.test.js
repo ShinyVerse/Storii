@@ -1,6 +1,11 @@
 import mockAxios from "axios";
 import { registerUser } from "./auth.js";
-import { REGISTER_SUCCESS, SET_ALERT, CLEAR_ALERT } from "./types";
+import {
+  REGISTER_SUCCESS,
+  SET_ALERT,
+  CLEAR_ALERT,
+  LOGIN_SUCCESS,
+} from "./types";
 
 jest.mock("axios");
 
@@ -19,69 +24,107 @@ describe("auth action", () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
-  it("Register user", async () => {
-    mockAxios.post.mockImplementationOnce(
-      async () => await Promise.resolve({ data: { token: "DINOSAUR" } }),
-    );
-
-    try {
-      const response = await registerUser(user);
-
-      await response(dispatch);
-
-      expect(mockAxios.post).toHaveBeenCalledTimes(1);
-      expect(mockAxios.post).toHaveBeenCalledWith(
-        "http://localhost:4000/users",
-        user,
-        { headers: { "Content-Type": "application/json" } },
+  describe("registerUser", () => {
+    it("is successful", async () => {
+      mockAxios.post.mockImplementationOnce(
+        async () => await Promise.resolve({ data: { token: "DINOSAUR" } }),
       );
 
-      expect(dispatch).toHaveBeenCalledWith({
-        payload: "DINOSAUR",
-        type: REGISTER_SUCCESS,
-      });
-    } catch (err) {
-      handleError(err);
-    }
+      try {
+        const response = await registerUser(user);
+
+        await response(dispatch);
+
+        expect(mockAxios.post).toHaveBeenCalledTimes(1);
+        expect(mockAxios.post).toHaveBeenCalledWith(
+          "http://localhost:4000/users",
+          user,
+          {
+            headers: { "Content-Type": "application/json" },
+          },
+        );
+
+        expect(dispatch).toHaveBeenCalledWith({
+          payload: "DINOSAUR",
+          type: REGISTER_SUCCESS,
+        });
+      } catch (err) {
+        handleError(err);
+      }
+    });
+    it("dispatches CLEAR_ALERT when successful", async () => {
+      mockAxios.post.mockImplementationOnce(
+        async () => await Promise.resolve({ data: { token: "DINOSAUR" } }),
+      );
+
+      try {
+        const response = await registerUser(user);
+
+        await response(dispatch);
+
+        expect(dispatch).toHaveBeenCalledWith({
+          type: CLEAR_ALERT,
+        });
+      } catch (err) {
+        handleError(err);
+      }
+    });
+    it("dispatches SET_ALERT when email already exists", async () => {
+      mockAxios.post.mockImplementationOnce(
+        async () =>
+          await Promise.reject({
+            response: { data: { msg: "user already exists" } },
+          }),
+      );
+
+      try {
+        const response = await registerUser(user);
+
+        await response(dispatch);
+
+        expect(mockAxios.post).toHaveBeenCalledTimes(1);
+
+        expect(dispatch).toHaveBeenCalledWith({
+          payload: "user already exists",
+          type: SET_ALERT,
+        });
+      } catch (err) {
+        handleError(err);
+      }
+    });
   });
-  it("dispatches CLEAR_ALERT when successful", async () => {
-    mockAxios.post.mockImplementationOnce(
-      async () => await Promise.resolve({ data: { token: "DINOSAUR" } }),
-    );
+  describe("loginUser", () => {
+    it("is successful", async () => {
+      mockAxios.post.mockImplementationOnce(
+        async () => await Promise.resolve({ data: { token: "DINOSAUR" } }),
+      );
 
-    try {
-      const response = await registerUser(user);
+      const existingUser = {
+        email: "test@test.com",
+        password: "123456",
+      };
 
-      await response(dispatch);
+      try {
+        const response = await loginUser(existingUser);
 
-      expect(dispatch).toHaveBeenCalledWith({
-        type: CLEAR_ALERT,
-      });
-    } catch (err) {
-      handleError(err);
-    }
-  });
-  it("dispatches SET_ALERT when email already exists", async () => {
-    mockAxios.post.mockImplementationOnce(
-      async () =>
-        await Promise.reject({
-          response: { data: { msg: "user already exists" } },
-        }),
-    );
+        await response(dispatch);
 
-    try {
-      const response = await registerUser(user);
+        expect(mockAxios.post).toHaveBeenCalledTimes(1);
+        expect(mockAxios.post).toHaveBeenCalledWith(
+          "http://localhost:4000/auth",
+          existingUser,
+          {
+            headers: { "Content-Type": "application/json" },
+          },
+        );
 
-      await response(dispatch);
-
-      expect(mockAxios.post).toHaveBeenCalledTimes(1);
-
-      expect(dispatch).toHaveBeenCalledWith({
-        payload: "user already exists",
-        type: SET_ALERT,
-      });
-    } catch (err) {
-      handleError(err);
-    }
+        expect(dispatch).toHaveBeenCalledWith({
+          payload: "DINOSAUR",
+          type: LOGIN_SUCCESS,
+        });
+      } catch (err) {
+        handleError(err);
+      }
+    });
   });
 });
