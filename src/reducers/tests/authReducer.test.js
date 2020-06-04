@@ -18,32 +18,32 @@ describe("authReducer", () => {
 
   it("update state on when user registers successfully", () => {
     const action = {
-      type: types.REGISTER_SUCCESS,
+      type: types.AUTH_SUCCESS,
       payload: "tokenmate",
     };
 
     const expectedState = {
-      isAuthenticated: null,
+      isAuthenticated: false,
       user: null,
       token: action.payload,
-      isLoading: null,
+      isLoading: false,
     };
 
     const state = authReducer(undefined, action);
-
+    expect(localStorage.getItem("s-token")).toBe("tokenmate");
     expect(state).toEqual(expectedState);
   });
   it("update state when user logs in successfully", () => {
     const action = {
-      type: types.LOGIN_SUCCESS,
+      type: types.AUTH_SUCCESS,
       payload: "tokenmate",
     };
 
     const expectedState = {
-      isAuthenticated: true,
+      isAuthenticated: false,
       user: null,
       token: action.payload,
-      isLoading: null,
+      isLoading: false,
     };
 
     const state = authReducer(undefined, action);

@@ -1,6 +1,11 @@
 import * as types from "./types";
 import axios from "axios";
 
+const loadUser = (userId) => {
+  //check for token
+  //token not there
+};
+
 export const registerUser = ({ penName, email, password }) => async (
   dispatch,
 ) => {
@@ -26,9 +31,11 @@ export const registerUser = ({ penName, email, password }) => async (
       type: types.CLEAR_ALERT,
     });
     dispatch({
-      type: types.REGISTER_SUCCESS,
+      type: types.AUTH_SUCCESS,
       payload: res.data.token,
     });
+
+    //loadUser()
   } catch (err) {
     dispatch({
       type: types.SET_ALERT,
@@ -59,7 +66,7 @@ export const loginUser = ({ email, password }) => async (dispatch) => {
       type: types.CLEAR_ALERT,
     });
     dispatch({
-      type: types.LOGIN_SUCCESS,
+      type: types.AUTH_SUCCESS,
       payload: res.data.token,
     });
   } catch (err) {

@@ -1,11 +1,6 @@
 import mockAxios from "axios";
 import { registerUser, loginUser } from "./auth.js";
-import {
-  REGISTER_SUCCESS,
-  SET_ALERT,
-  CLEAR_ALERT,
-  LOGIN_SUCCESS,
-} from "./types";
+import { AUTH_SUCCESS, SET_ALERT, CLEAR_ALERT } from "./types";
 
 jest.mock("axios");
 
@@ -47,7 +42,7 @@ describe("auth action", () => {
 
         expect(dispatch).toHaveBeenCalledWith({
           payload: "DINOSAUR",
-          type: REGISTER_SUCCESS,
+          type: AUTH_SUCCESS,
         });
       } catch (err) {
         handleError(err);
@@ -118,7 +113,7 @@ describe("auth action", () => {
 
         expect(dispatch).toHaveBeenCalledWith({
           payload: "DINOSAUR",
-          type: LOGIN_SUCCESS,
+          type: AUTH_SUCCESS,
         });
       } catch (err) {
         handleError(err);

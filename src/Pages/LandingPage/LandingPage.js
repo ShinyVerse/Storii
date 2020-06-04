@@ -7,10 +7,10 @@ import img from "../../assets/img/iconLong.png";
 
 import { connect } from "react-redux";
 
-import { registerUser } from "../../actions/auth";
-import { setAlert, clearAlert } from "../../actions/alert";
+import { registerUser, loginUser } from "../../actions/auth";
+import { setAlert } from "../../actions/alert";
 
-const LandingPage = ({ registerUser, setAlert, clearAlert }) => {
+const LandingPage = ({ registerUser, setAlert, loginUser }) => {
   const [formType, setFormType] = useState("register");
 
   const checkFormIsPopulated = (state) => {
@@ -39,13 +39,16 @@ const LandingPage = ({ registerUser, setAlert, clearAlert }) => {
         setAlert("PASSWORDS NOT THE SAME");
         return;
       }
+      try {
+        await registerUser(state);
+      } catch (err) {
+        console.error(err);
+        setAlert(err.msg);
+      }
     }
-    try {
-      await registerUser(state);
-    } catch (err) {
-      console.error(err);
-      setAlert(err.msg);
-    }
+
+    // login user
+    //redirect
   };
 
   return (
@@ -164,6 +167,8 @@ const LandingPage = ({ registerUser, setAlert, clearAlert }) => {
 
 const mapStateToProps = () => ({});
 
-export default connect(mapStateToProps, { registerUser, setAlert, clearAlert })(
-  LandingPage
-);
+export default connect(mapStateToProps, {
+  registerUser,
+  loginUser,
+  setAlert,
+})(LandingPage);
