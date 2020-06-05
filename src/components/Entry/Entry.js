@@ -1,15 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-export const Entry = ({ penName, content }) => {
+export const Entry = ({ item }) => {
+  const { writer } = item;
   return (
     <div data-test="entry">
-      {penName}: {content}
+      {writer.penName}: {item.content}
     </div>
   );
-};
-
-Entry.propTypes = {
-  penName: PropTypes.string.isRequired,
-  content: PropTypes.string,
 };

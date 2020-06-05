@@ -5,6 +5,29 @@ import { setAlert } from "../../actions/alert";
 import { Entry } from "../../components/Entry/Entry";
 import { Form } from "../../components/Form/Form";
 
+import { List } from "../../components/List/List";
+
+const entries = [
+  {
+    writer: {
+      penName: "Sally",
+    },
+    content: "HELLLLOOOOOOOO",
+  },
+  {
+    writer: {
+      penName: "Bob",
+    },
+    content: "Oh hi",
+  },
+  {
+    writer: {
+      penName: "Lilly",
+    },
+    content: "I love spaghetti",
+  },
+];
+
 export const Storii = ({ loadUser, setAlert, user = true, history }) => {
   const isAuthenticated = async () => {
     if (user) {
@@ -25,7 +48,7 @@ export const Storii = ({ loadUser, setAlert, user = true, history }) => {
 
   return (
     <div>
-      <Entry penName="Sally" content="HELLLLOOOOOOOO" />
+      <List items={entries} Component={Entry} />
       {isAuthenticated() && (
         <Form
           initState={{
