@@ -11,15 +11,6 @@ export const Form = (props) => {
     });
   };
 
-  const clearDataOf = (name) => {
-    setState({
-      ...state,
-      testInput: "",
-    });
-
-    console.log("here is state", state);
-  };
-
   const onCheckboxChange = (e) => {
     const { name, checked } = e.target;
     const arrayName = e.target.attributes.belongsto.value;
@@ -47,7 +38,6 @@ export const Form = (props) => {
       {props.children({
         state,
         onChange,
-        clearDataOf,
         onCheckboxChange,
       })}
       <button onClick={onSubmit} data-test="submit">

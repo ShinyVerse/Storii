@@ -46,7 +46,7 @@ describe("Form", () => {
             <input
               data-test="testInput"
               name="testInput"
-              value={state.testInput || "hello"}
+              value={state.testInput}
               onChange={onChange}
             />
           );
@@ -148,7 +148,7 @@ describe("Form", () => {
             <input
               data-test="testInput"
               name="testInput"
-              value={state.testInput || "hello"}
+              value={state.testInput}
               onChange={onChange}
             />
           );
@@ -168,40 +168,6 @@ describe("Form", () => {
 
     expect(onSubmitSpy).toHaveBeenCalledTimes(1);
     expect(onSubmitSpy).toHaveBeenCalledWith({ testInput: "CHANGED" });
-  });
-
-  it("can clear specific data", () => {
-    defaultProps.initState.testInput = "hello";
-
-    const wrapper = shallow(
-      <Form {...defaultProps}>
-        {({ state, clearDataOf }) => {
-          return (
-            <div>
-              <input
-                data-test="testInput"
-                name="testInput"
-                value={state.testInput || "hello"}
-              />
-              <button
-                data-test="clearButton"
-                onClick={() => clearDataOf("testInput")}
-              >
-                clear
-              </button>
-            </div>
-          );
-        }}
-      </Form>,
-    );
-
-    let clearButtonElement = wrapper.find('[data-test="clearButton"]');
-
-    clearButtonElement.simulate("click");
-
-    const inputElement = wrapper.find('[data-test="testInput"]');
-
-    expect(inputElement.prop("value")).toBe("");
   });
 });
 

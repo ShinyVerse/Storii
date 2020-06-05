@@ -34,8 +34,6 @@ export const Storii = ({ loadUser, setAlert, user = true, history }) => {
           handleSubmit={handleSubmit}
         >
           {({ state, onChange }) => {
-            const { content } = state;
-
             return (
               <div>
                 <textarea
@@ -43,7 +41,6 @@ export const Storii = ({ loadUser, setAlert, user = true, history }) => {
                   onChange={onChange}
                   value={state.content}
                 ></textarea>
-                {/* <button onClick={}>clear</button> */}
               </div>
             );
           }}
