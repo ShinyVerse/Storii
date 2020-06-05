@@ -27,7 +27,7 @@ describe("Form", () => {
         {() => {
           return <div data-test="test">hello</div>;
         }}
-      </Form>
+      </Form>,
     );
 
     const divElement = wrapper.find('[data-test="test"]');
@@ -46,12 +46,12 @@ describe("Form", () => {
             <input
               data-test="testInput"
               name="testInput"
-              value={state.testInput || "hello"}
+              value={state.testInput}
               onChange={onChange}
             />
           );
         }}
-      </Form>
+      </Form>,
     );
 
     let inputElement = wrapper.find('[data-test="testInput"]');
@@ -87,7 +87,7 @@ describe("Form", () => {
             </select>
           );
         }}
-      </Form>
+      </Form>,
     );
 
     let selectElement = wrapper.find('[data-test="select"]');
@@ -117,7 +117,7 @@ describe("Form", () => {
             />
           );
         }}
-      </Form>
+      </Form>,
     );
 
     const checkboxElement = wrapper.find('[data-test="checkbox"]');
@@ -148,12 +148,12 @@ describe("Form", () => {
             <input
               data-test="testInput"
               name="testInput"
-              value={state.testInput || "hello"}
+              value={state.testInput}
               onChange={onChange}
             />
           );
         }}
-      </Form>
+      </Form>,
     );
 
     const inputElement = wrapper.find('[data-test="testInput"]');

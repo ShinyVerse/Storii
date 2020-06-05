@@ -38,6 +38,8 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
   };
 
   const handleSubmit = async (formData) => {
+    console.log(formData);
+
     if (!checkFormIsPopulated(formData)) return;
 
     if (formType === "register") {
@@ -76,7 +78,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
                   <input
                     name="penName"
                     onChange={onChange}
-                    value={penName || ""}
+                    value={penName}
                     type="text"
                     required
                   />
@@ -84,7 +86,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
                   <input
                     name="email"
                     onChange={onChange}
-                    value={email || ""}
+                    value={email}
                     type="email"
                     required
                   />
@@ -92,7 +94,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
                   <input
                     name="password"
                     onChange={onChange}
-                    value={password || ""}
+                    value={password}
                     type="password"
                     required
                     minLength="6"
@@ -101,7 +103,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
                   <input
                     name="password2"
                     onChange={onChange}
-                    value={password2 || ""}
+                    value={password2}
                     type="password"
                     required
                     minLength="6"
@@ -136,7 +138,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
                   <input
                     name="email"
                     onChange={onChange}
-                    value={email || ""}
+                    value={email}
                     type="email"
                     required
                   />
@@ -144,7 +146,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
                   <input
                     name="password"
                     onChange={onChange}
-                    value={password || ""}
+                    value={password}
                     type="password"
                     required
                     minLength="6"
