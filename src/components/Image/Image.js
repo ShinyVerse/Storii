@@ -1,19 +1,9 @@
-import React from 'react'
+import React from "react";
 
-import './Image.scss';
+import "./Image.scss";
 
-export const Image = ({src, alt, type}) => {
- 
-  const className = type ? type : 'avatar';
+export const Image = ({ src, alt, type }) => {
+  const className = type ? type : "avatar";
 
-  return (
-    <img 
-      src={src} 
-      alt={alt}
-      className={className}
-      data-test='image'
-      />
-  )
-}
-
-
+  return <img src={src} alt={alt} className={className} data-test="image" />;
+};

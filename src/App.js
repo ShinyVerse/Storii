@@ -6,6 +6,7 @@ import "./App.scss";
 import { Provider } from "react-redux";
 
 import LandingPage from "./Pages/LandingPage/LandingPage";
+import Storii from "./Pages/Storii/Storii";
 import Alert from "./components/Alert/Alert";
 import store from "./store";
 
@@ -63,6 +64,7 @@ export default function App() {
         <Router>
           <Switch>
             <Route exact path="/" component={LandingPage} />
+            <Route exact path="/storii" component={Storii} />
           </Switch>
         </Router>
       </div>
