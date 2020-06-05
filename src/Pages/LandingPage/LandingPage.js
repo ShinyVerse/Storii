@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HeaderWithText } from "../../components/HeaderWithText/HeaderWithText";
 import { Image } from "../../components/Image/Image";
 import { Form } from "../../components/Form/Form";
@@ -10,12 +10,19 @@ import { connect } from "react-redux";
 import { registerUser, loginUser } from "../../actions/auth";
 import { setAlert } from "../../actions/alert";
 
-const LandingPage = ({ registerUser, setAlert, loginUser }) => {
+const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
+  useEffect(() => {
+    console.log(token);
+
+    if (token) history.push("/storii");
+  }, [token]);
+
   const [formType, setFormType] = useState("register");
 
   const checkFormIsPopulated = (state) => {
     for (let [key, value] of Object.entries(state)) {
       if (value === "") {
+        setAlert("you need to fill in the form");
         return false;
       }
     }
@@ -26,29 +33,21 @@ const LandingPage = ({ registerUser, setAlert, loginUser }) => {
     if (password === password2) {
       return true;
     }
+    setAlert("PASSWORDS NOT THE SAME");
     return false;
   };
 
-  const handleSubmit = async (state) => {
-    if (!checkFormIsPopulated(state)) {
-      setAlert("you need to fill in the form");
+  const handleSubmit = async (formData) => {
+    if (!checkFormIsPopulated(formData)) return;
+
+    if (formType === "register") {
+      if (!checkPassword(formData)) return;
+
+      await registerUser(formData);
       return;
     }
-    if (formType === "register") {
-      if (!checkPassword(state)) {
-        setAlert("PASSWORDS NOT THE SAME");
-        return;
-      }
-      try {
-        await registerUser(state);
-      } catch (err) {
-        console.error(err);
-        setAlert(err.msg);
-      }
-    }
 
-    // login user
-    //redirect
+    await loginUser(formData);
   };
 
   return (
@@ -165,7 +164,9 @@ const LandingPage = ({ registerUser, setAlert, loginUser }) => {
   );
 };
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (state) => ({
+  token: state.auth.token,
+});
 
 export default connect(mapStateToProps, {
   registerUser,
