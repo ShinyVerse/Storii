@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { loadUser } from "../../actions/auth";
 import { setAlert } from "../../actions/alert";
+import { Entry } from "../../components/Entry/Entry";
 
 export const Storii = ({ loadUser, setAlert, user, history }) => {
   const isAuthenticated = async () => {
@@ -16,7 +17,7 @@ export const Storii = ({ loadUser, setAlert, user, history }) => {
       history.push("/LandingPage");
     }
   };
-  return <div>{isAuthenticated() && <div>hello YOU ARE A USER!</div>}</div>;
+  return <div>{isAuthenticated() && <Entry />}</div>;
 };
 
 const mapStateToProps = (state) => ({
