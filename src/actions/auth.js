@@ -1,9 +1,23 @@
 import * as types from "./types";
 import axios from "axios";
 
-const loadUser = (userId) => {
-  //check for token
-  //token not there
+export const loadUser = () => async (dispatch) => {
+  const token = localStorage.getItem("s-token");
+
+  const config = { headers: { "x-auth-token": token } };
+
+  try {
+    const res = await axios.get("http://localhost:4000/auth", config);
+    dispatch({
+      type: types.USER_LOADED,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: types.SET_ALERT,
+      payload: err.response.data.msg,
+    });
+  }
 };
 
 export const registerUser = ({ penName, email, password }) => async (

@@ -1,6 +1,6 @@
 import mockAxios from "axios";
-import { registerUser, loginUser } from "./auth.js";
-import { AUTH_SUCCESS, SET_ALERT, CLEAR_ALERT } from "./types";
+import { registerUser, loginUser, loadUser } from "./auth.js";
+import { AUTH_SUCCESS, SET_ALERT, CLEAR_ALERT, USER_LOADED } from "./types";
 
 jest.mock("axios");
 
@@ -153,6 +153,63 @@ describe("auth action", () => {
 
         expect(dispatch).toHaveBeenCalledWith({
           payload: "Invalid credentials",
+          type: SET_ALERT,
+        });
+      } catch (err) {
+        handleError(err);
+      }
+    });
+  });
+  describe("loadUser", () => {
+    it("dispatches USER_LOADED when successful", async () => {
+      const user = {
+        _id: "testId",
+      };
+      const defaultToken = "defaultTokenMate";
+
+      localStorage.setItem("s-token", defaultToken);
+
+      mockAxios.get.mockImplementationOnce(
+        async () => await Promise.resolve({ data: user }),
+      );
+
+      try {
+        const response = await loadUser();
+
+        await response(dispatch);
+
+        expect(mockAxios.get).toHaveBeenCalledTimes(1);
+        expect(mockAxios.get).toHaveBeenCalledWith(
+          "http://localhost:4000/auth",
+          {
+            headers: { "x-auth-token": defaultToken },
+          },
+        );
+
+        expect(dispatch).toHaveBeenCalledWith({
+          payload: user,
+          type: USER_LOADED,
+        });
+      } catch (err) {
+        handleError(err);
+      }
+    });
+    it("dispatches SET_ALERT when error logging in", async () => {
+      mockAxios.get.mockImplementationOnce(
+        async () =>
+          await Promise.reject({
+            response: { data: { msg: "You need to sign in" } },
+          }),
+      );
+      try {
+        const response = await loadUser();
+
+        await response(dispatch);
+
+        expect(mockAxios.get).toHaveBeenCalledTimes(1);
+
+        expect(dispatch).toHaveBeenCalledWith({
+          payload: "You need to sign in",
           type: SET_ALERT,
         });
       } catch (err) {
