@@ -27,7 +27,7 @@ describe("Form", () => {
         {() => {
           return <div data-test="test">hello</div>;
         }}
-      </Form>
+      </Form>,
     );
 
     const divElement = wrapper.find('[data-test="test"]');
@@ -51,7 +51,7 @@ describe("Form", () => {
             />
           );
         }}
-      </Form>
+      </Form>,
     );
 
     let inputElement = wrapper.find('[data-test="testInput"]');
@@ -87,7 +87,7 @@ describe("Form", () => {
             </select>
           );
         }}
-      </Form>
+      </Form>,
     );
 
     let selectElement = wrapper.find('[data-test="select"]');
@@ -117,7 +117,7 @@ describe("Form", () => {
             />
           );
         }}
-      </Form>
+      </Form>,
     );
 
     const checkboxElement = wrapper.find('[data-test="checkbox"]');
@@ -153,7 +153,7 @@ describe("Form", () => {
             />
           );
         }}
-      </Form>
+      </Form>,
     );
 
     const inputElement = wrapper.find('[data-test="testInput"]');
@@ -168,6 +168,40 @@ describe("Form", () => {
 
     expect(onSubmitSpy).toHaveBeenCalledTimes(1);
     expect(onSubmitSpy).toHaveBeenCalledWith({ testInput: "CHANGED" });
+  });
+
+  it("can clear specific data", () => {
+    defaultProps.initState.testInput = "hello";
+
+    const wrapper = shallow(
+      <Form {...defaultProps}>
+        {({ state, clearDataOf }) => {
+          return (
+            <div>
+              <input
+                data-test="testInput"
+                name="testInput"
+                value={state.testInput || "hello"}
+              />
+              <button
+                data-test="clearButton"
+                onClick={() => clearDataOf("testInput")}
+              >
+                clear
+              </button>
+            </div>
+          );
+        }}
+      </Form>,
+    );
+
+    let clearButtonElement = wrapper.find('[data-test="clearButton"]');
+
+    clearButtonElement.simulate("click");
+
+    const inputElement = wrapper.find('[data-test="testInput"]');
+
+    expect(inputElement.prop("value")).toBe("");
   });
 });
 

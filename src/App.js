@@ -63,7 +63,7 @@ export default function App() {
         <Alert />
         <Router>
           <Switch>
-            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/" component={Storii} />
             <Route exact path="/storii" component={Storii} />
           </Switch>
         </Router>

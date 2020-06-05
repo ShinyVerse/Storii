@@ -17,7 +17,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
     if (token) history.push("/storii");
   }, [token]);
 
-  const [formType, setFormType] = useState("register");
+  const [formType, setFormType] = useState("login");
 
   const checkFormIsPopulated = (state) => {
     for (let [key, value] of Object.entries(state)) {
@@ -121,8 +121,8 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
         <div>
           <Form
             initState={{
-              email: "",
-              password: "",
+              email: "laursy@laura.com",
+              password: "123456",
             }}
             btnName="login"
             handleSubmit={handleSubmit}
