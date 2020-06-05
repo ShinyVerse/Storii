@@ -16,14 +16,13 @@ describe("authReducer", () => {
     );
   });
 
-  it("update state on when user registers successfully", () => {
+  it("handles AUTH_SUCCESS", () => {
     const action = {
       type: types.AUTH_SUCCESS,
       payload: "tokenmate",
     };
 
     const expectedState = {
-      isAuthenticated: false,
       user: null,
       token: action.payload,
       isLoading: false,
@@ -33,21 +32,22 @@ describe("authReducer", () => {
     expect(localStorage.getItem("s-token")).toBe("tokenmate");
     expect(state).toEqual(expectedState);
   });
-  it("update state when user logs in successfully", () => {
-    const action = {
-      type: types.AUTH_SUCCESS,
-      payload: "tokenmate",
-    };
 
-    const expectedState = {
-      isAuthenticated: false,
+  it("handles LOAD_USER", () => {
+    const initialState = {
       user: null,
-      token: action.payload,
+      token: "1234567",
       isLoading: false,
     };
+    const defaultUser = {
+      _id: "123",
+    };
+    const action = {
+      type: types.LOAD_USER,
+      payload: defaultUser,
+    };
 
-    const state = authReducer(undefined, action);
-
-    expect(state).toEqual(expectedState);
+    const state = authReducer(initialState, action);
+    expect(state).toEqual({ ...initialState, user: defaultUser });
   });
 });

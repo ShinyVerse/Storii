@@ -9,7 +9,7 @@ export const loadUser = () => async (dispatch) => {
   try {
     const res = await axios.get("http://localhost:4000/auth", config);
     dispatch({
-      type: types.USER_LOADED,
+      type: types.LOAD_USER,
       payload: res.data,
     });
   } catch (err) {
@@ -48,8 +48,6 @@ export const registerUser = ({ penName, email, password }) => async (
       type: types.AUTH_SUCCESS,
       payload: res.data.token,
     });
-
-    //loadUser()
   } catch (err) {
     dispatch({
       type: types.SET_ALERT,

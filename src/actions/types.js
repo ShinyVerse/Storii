@@ -1,5 +1,5 @@
 //Types for Auth state
-export const USER_LOADED = "USER_LOADED";
+export const LOAD_USER = "LOAD_USER";
 export const AUTH_SUCCESS = "AUTH_SUCCESS";
 export const LOGOUT = "LOGOUT";
 export const REGISTER_FAIL = "REGISTER_FAIL";

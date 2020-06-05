@@ -1,7 +1,6 @@
 import * as types from "../actions/types";
 
 const initialState = {
-  isAuthenticated: false,
   user: null,
   token: null,
   isLoading: false,
@@ -14,6 +13,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         token: action.payload,
+      };
+    case types.LOAD_USER:
+      return {
+        ...state,
+        user: action.payload,
       };
     default:
       return state;

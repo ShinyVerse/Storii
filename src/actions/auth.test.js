@@ -1,6 +1,6 @@
 import mockAxios from "axios";
 import { registerUser, loginUser, loadUser } from "./auth.js";
-import { AUTH_SUCCESS, SET_ALERT, CLEAR_ALERT, USER_LOADED } from "./types";
+import * as types from "./types";
 
 jest.mock("axios");
 
@@ -42,7 +42,7 @@ describe("auth action", () => {
 
         expect(dispatch).toHaveBeenCalledWith({
           payload: "DINOSAUR",
-          type: AUTH_SUCCESS,
+          type: types.AUTH_SUCCESS,
         });
       } catch (err) {
         handleError(err);
@@ -59,7 +59,7 @@ describe("auth action", () => {
         await response(dispatch);
 
         expect(dispatch).toHaveBeenCalledWith({
-          type: CLEAR_ALERT,
+          type: types.CLEAR_ALERT,
         });
       } catch (err) {
         handleError(err);
@@ -82,7 +82,7 @@ describe("auth action", () => {
 
         expect(dispatch).toHaveBeenCalledWith({
           payload: "user already exists",
-          type: SET_ALERT,
+          type: types.SET_ALERT,
         });
       } catch (err) {
         handleError(err);
@@ -113,7 +113,7 @@ describe("auth action", () => {
 
         expect(dispatch).toHaveBeenCalledWith({
           payload: "DINOSAUR",
-          type: AUTH_SUCCESS,
+          type: types.AUTH_SUCCESS,
         });
       } catch (err) {
         handleError(err);
@@ -130,7 +130,7 @@ describe("auth action", () => {
         await response(dispatch);
 
         expect(dispatch).toHaveBeenCalledWith({
-          type: CLEAR_ALERT,
+          type: types.CLEAR_ALERT,
         });
       } catch (err) {
         handleError(err);
@@ -153,7 +153,7 @@ describe("auth action", () => {
 
         expect(dispatch).toHaveBeenCalledWith({
           payload: "Invalid credentials",
-          type: SET_ALERT,
+          type: types.SET_ALERT,
         });
       } catch (err) {
         handleError(err);
@@ -188,7 +188,7 @@ describe("auth action", () => {
 
         expect(dispatch).toHaveBeenCalledWith({
           payload: user,
-          type: USER_LOADED,
+          type: types.LOAD_USER,
         });
       } catch (err) {
         handleError(err);
@@ -210,7 +210,7 @@ describe("auth action", () => {
 
         expect(dispatch).toHaveBeenCalledWith({
           payload: "You need to sign in",
-          type: SET_ALERT,
+          type: types.SET_ALERT,
         });
       } catch (err) {
         handleError(err);
