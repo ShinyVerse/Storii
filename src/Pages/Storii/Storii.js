@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+import openSocket from "socket.io-client";
+
 import { connect } from "react-redux";
 import { loadUser } from "../../actions/auth";
 import { setAlert } from "../../actions/alert";
@@ -7,7 +10,7 @@ import { Form } from "../../components/Form/Form";
 
 import { List } from "../../components/List/List";
 
-const entries = [
+const staticEntries = [
   {
     writer: {
       penName: "Sally",
@@ -28,7 +31,14 @@ const entries = [
   },
 ];
 
-export const Storii = ({ loadUser, setAlert, user = true, history }) => {
+const ws = openSocket("http://localhost:4000");
+ws.on("new-message", (message) => {
+  console.log("INSIDESHFAODJFAO", message);
+});
+
+export const Storii = ({ loadUser, setAlert, user, history }) => {
+  const [entries, setEntries] = useState(staticEntries);
+
   const isAuthenticated = async () => {
     if (user) {
       return true;
@@ -42,18 +52,29 @@ export const Storii = ({ loadUser, setAlert, user = true, history }) => {
     }
   };
 
+  useEffect(() => {
+    ws.on("new-message", (message) => {
+      const updatedEntries = [...entries, message];
+      setEntries(updatedEntries);
+    });
+  }, [entries]);
+
   const handleSubmit = (state) => {
-    console.log(state);
+    console.log("HEFE", state);
+
+    ws.emit("message", state);
   };
+  console.log("USER!", { ...user });
 
   return (
     <div>
       <List items={entries} Component={Entry} />
-      {isAuthenticated() && (
+
+      {isAuthenticated() && user && (
         <Form
           initState={{
             content: "",
-            penName: "Unknown",
+            writer: { ...user },
           }}
           btnName="add"
           handleSubmit={handleSubmit}

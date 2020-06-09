@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import StoryContainer from "./components/StoryPage/StoryContainer";
-import EntryForm from "./components/StoryPage/EntryForm";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import { Provider } from "react-redux";
@@ -63,7 +61,7 @@ export default function App() {
         <Alert />
         <Router>
           <Switch>
-            <Route exact path="/" component={Storii} />
+            <Route exact path="/" component={LandingPage} />
             <Route exact path="/storii" component={Storii} />
           </Switch>
         </Router>
