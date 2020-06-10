@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import StoryContainer from "./components/StoryPage/StoryContainer";
-import EntryForm from "./components/StoryPage/EntryForm";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import { Provider } from "react-redux";
@@ -15,19 +13,9 @@ const socket = new WebSocket("wss://javascript.info/article/websocket/chat/ws");
 export default function App() {
   const [story, updateStory] = useState([]);
 
-  useEffect(() => {
-    console.log("HI!");
-    console.log(story);
-  }, [story]);
-
   socket.onmessage = (event) => {
     updateStory([...story, event.data]);
   };
-
-  // socket.onopen = () => {
-  //   console.log("[open] Connection established");
-
-  // };
 
   const addEntryToStory = (entry) => {
     //update own state

@@ -12,12 +12,10 @@ import { setAlert } from "../../actions/alert";
 
 const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
   useEffect(() => {
-    console.log(token);
-
     if (token) history.push("/storii");
   }, [token]);
 
-  const [formType, setFormType] = useState("register");
+  const [formType, setFormType] = useState("login");
 
   const checkFormIsPopulated = (state) => {
     for (let [key, value] of Object.entries(state)) {
@@ -76,7 +74,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
                   <input
                     name="penName"
                     onChange={onChange}
-                    value={penName || ""}
+                    value={penName}
                     type="text"
                     required
                   />
@@ -84,7 +82,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
                   <input
                     name="email"
                     onChange={onChange}
-                    value={email || ""}
+                    value={email}
                     type="email"
                     required
                   />
@@ -92,7 +90,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
                   <input
                     name="password"
                     onChange={onChange}
-                    value={password || ""}
+                    value={password}
                     type="password"
                     required
                     minLength="6"
@@ -101,7 +99,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
                   <input
                     name="password2"
                     onChange={onChange}
-                    value={password2 || ""}
+                    value={password2}
                     type="password"
                     required
                     minLength="6"
@@ -121,8 +119,8 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
         <div>
           <Form
             initState={{
-              email: "",
-              password: "",
+              email: "laursy@laura.com",
+              password: "123456",
             }}
             btnName="login"
             handleSubmit={handleSubmit}
@@ -136,7 +134,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
                   <input
                     name="email"
                     onChange={onChange}
-                    value={email || ""}
+                    value={email}
                     type="email"
                     required
                   />
@@ -144,7 +142,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
                   <input
                     name="password"
                     onChange={onChange}
-                    value={password || ""}
+                    value={password}
                     type="password"
                     required
                     minLength="6"

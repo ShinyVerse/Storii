@@ -34,18 +34,13 @@ export const Form = (props) => {
   };
 
   return (
-    <div
-      data-test="form"
-    >
+    <div data-test="form">
       {props.children({
         state,
         onChange,
         onCheckboxChange,
       })}
-      <button
-        onClick={onSubmit}
-        data-test="submit"
-      >
+      <button onClick={onSubmit} data-test="submit">
         {props.btnName || "send"}
       </button>
     </div>
