@@ -32,9 +32,6 @@ const staticEntries = [
 ];
 
 const ws = openSocket("http://localhost:4000");
-ws.on("new-message", (message) => {
-  console.log("INSIDESHFAODJFAO", message);
-});
 
 export const Storii = ({ loadUser, setAlert, user, history }) => {
   const [entries, setEntries] = useState(staticEntries);
