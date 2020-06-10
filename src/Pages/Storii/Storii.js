@@ -47,7 +47,6 @@ export const Storii = ({
   useEffect(() => {
     ws.on("new-message", (message) => {
       const updatedEntries = [...entries, message];
-
       setEntries(updatedEntries);
     });
   }, [entries]);
@@ -57,7 +56,9 @@ export const Storii = ({
   }, []);
 
   useEffect(() => {
-    setEntries(storii.entries);
+    if (storii.entries) {
+      setEntries(storii.entries);
+    }
   }, [storii]);
 
   const handleSubmit = (state) => {

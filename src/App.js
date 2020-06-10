@@ -17,11 +17,6 @@ export default function App() {
     updateStory([...story, event.data]);
   };
 
-  // socket.onopen = () => {
-  //   console.log("[open] Connection established");
-
-  // };
-
   const addEntryToStory = (entry) => {
     //update own state
     // add entry to db

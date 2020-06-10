@@ -1,8 +1,6 @@
 import React from "react";
 
 export const List = ({ items, Component, itemName }) => {
-  console.log("ITEMS", items);
-
   return (
     <div data-test="list">
       {items.map((item, index) => (

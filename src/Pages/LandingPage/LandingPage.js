@@ -12,8 +12,6 @@ import { setAlert } from "../../actions/alert";
 
 const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
   useEffect(() => {
-    console.log(token);
-
     if (token) history.push("/storii");
   }, [token]);
 
@@ -38,8 +36,6 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
   };
 
   const handleSubmit = async (formData) => {
-    console.log(formData);
-
     if (!checkFormIsPopulated(formData)) return;
 
     if (formType === "register") {
