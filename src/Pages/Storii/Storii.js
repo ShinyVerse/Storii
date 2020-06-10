@@ -56,15 +56,19 @@ export const Storii = ({
     loadEntries();
   }, []);
 
+  useEffect(() => {
+    setEntries(storii.entries);
+  }, [storii]);
+
   const handleSubmit = (state) => {
     ws.emit("message", state);
   };
 
   return (
     <div>
-      <List items={entries} Component={Entry} />
+      {storii && <List items={entries} Component={Entry} />}
 
-      {isAuthenticated() && user && storii && (
+      {isAuthenticated() && user && (
         <Form
           initState={{
             content: "",
