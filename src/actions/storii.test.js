@@ -21,8 +21,10 @@ describe("storii action", () => {
       mockAxios.get.mockImplementationOnce(
         async () =>
           await Promise.resolve({
-            storii: {
-              entries: [{ content: "hi", writer: { penName } }],
+            data: {
+              storii: {
+                entries: [{ content: "hi", writer: { penName: "laursey" } }],
+              },
             },
           }),
       );
@@ -39,7 +41,7 @@ describe("storii action", () => {
 
         const expectedPayload = {
           storii: {
-            entries: [{ content: "hi", writer: { penName } }],
+            entries: [{ content: "hi", writer: { penName: "laursey" } }],
           },
         };
 
