@@ -4,37 +4,24 @@ import openSocket from "socket.io-client";
 
 import { connect } from "react-redux";
 import { loadUser } from "../../actions/auth";
+import { getStorii } from "../../actions/storii";
 import { setAlert } from "../../actions/alert";
 import { Entry } from "../../components/Entry/Entry";
 import { Form } from "../../components/Form/Form";
 
 import { List } from "../../components/List/List";
 
-const staticEntries = [
-  {
-    writer: {
-      penName: "Sally",
-    },
-    content: "HELLLLOOOOOOOO",
-  },
-  {
-    writer: {
-      penName: "Bob",
-    },
-    content: "Oh hi",
-  },
-  {
-    writer: {
-      penName: "Lilly",
-    },
-    content: "I love spaghetti",
-  },
-];
-
 const ws = openSocket("http://localhost:4000");
 
-export const Storii = ({ loadUser, setAlert, user, history }) => {
-  const [entries, setEntries] = useState(staticEntries);
+export const Storii = ({
+  loadUser,
+  setAlert,
+  user,
+  storii,
+  getStorii,
+  history,
+}) => {
+  const [entries, setEntries] = useState([]);
 
   const isAuthenticated = async () => {
     if (user) {
@@ -49,25 +36,35 @@ export const Storii = ({ loadUser, setAlert, user, history }) => {
     }
   };
 
+  const loadEntries = async () => {
+    try {
+      await getStorii("5ec66337ac935260a11e1388");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     ws.on("new-message", (message) => {
       const updatedEntries = [...entries, message];
+
       setEntries(updatedEntries);
     });
   }, [entries]);
 
-  const handleSubmit = (state) => {
-    console.log("HEFE", state);
+  useEffect(() => {
+    loadEntries();
+  }, []);
 
+  const handleSubmit = (state) => {
     ws.emit("message", state);
   };
-  console.log("USER!", { ...user });
 
   return (
     <div>
       <List items={entries} Component={Entry} />
 
-      {isAuthenticated() && user && (
+      {isAuthenticated() && user && storii && (
         <Form
           initState={{
             content: "",
@@ -95,9 +92,11 @@ export const Storii = ({ loadUser, setAlert, user, history }) => {
 
 const mapStateToProps = (state) => ({
   user: state.auth.user,
+  storii: state.storii,
 });
 
 export default connect(mapStateToProps, {
+  getStorii,
   loadUser,
   setAlert,
 })(Storii);

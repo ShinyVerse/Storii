@@ -13,11 +13,6 @@ const socket = new WebSocket("wss://javascript.info/article/websocket/chat/ws");
 export default function App() {
   const [story, updateStory] = useState([]);
 
-  useEffect(() => {
-    console.log("HI!");
-    console.log(story);
-  }, [story]);
-
   socket.onmessage = (event) => {
     updateStory([...story, event.data]);
   };

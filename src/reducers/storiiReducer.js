@@ -1,15 +1,13 @@
 import * as types from "../actions/types";
 
-const initialState = {
-  storii: null,
-};
+const initialState = {};
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case types.GET_STORII:
       return {
         ...state,
-        storii: action.payload,
+        ...action.payload,
       };
     default:
       return state;

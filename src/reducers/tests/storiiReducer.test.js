@@ -26,11 +26,7 @@ describe("storiiReducer", () => {
       payload: storii,
     };
 
-    const expectedState = {
-      storii,
-    };
-
     const state = storiiReducer(undefined, action);
-    expect(state).toEqual(expectedState);
+    expect(state).toEqual(storii);
   });
 });
