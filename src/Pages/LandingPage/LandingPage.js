@@ -7,7 +7,7 @@ import img from "../../assets/img/iconLong.png";
 
 import { connect } from "react-redux";
 
-import { registerForm, loginForm } from "../../formFarm/FormFarm";
+import { registerForm, loginForm } from "../../Utilities/FormFarm";
 import { registerUser, loginUser } from "../../actions/auth";
 import { setAlert } from "../../actions/alert";
 
