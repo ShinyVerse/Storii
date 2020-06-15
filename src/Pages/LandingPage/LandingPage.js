@@ -20,7 +20,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
     if (token) history.push("/storii");
   }, [token]);
 
-  const [formType, setFormType] = useState("register");
+  const [formType, setFormType] = useState("login");
 
   const checkFormIsPopulated = (state) => {
     for (let [key, value] of Object.entries(state)) {

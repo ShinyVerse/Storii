@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import "./Form.scss";
 export const Form = (props) => {
+  const injectedClassName = props.css || "";
   const [state, setState] = useState(props.initState);
 
   const onChange = (e) => {
@@ -35,7 +36,10 @@ export const Form = (props) => {
   };
 
   return (
-    <div className="form-wrapper main-wrapper" data-test="form">
+    <div
+      className={`form-wrapper main-wrapper ${injectedClassName}`}
+      data-test="form"
+    >
       {props.children({
         state,
         onChange,

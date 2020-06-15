@@ -1,5 +1,4 @@
 .form-wrapper {
-  // border: black solid 2px;
   width: 90%;
   display: flex;
   flex-direction: column;
@@ -13,6 +12,13 @@
   -webkit-box-shadow: 2px 12px 20px 0px rgba(161, 161, 161, 1);
   -moz-box-shadow: 2px 12px 20px 0px rgba(161, 161, 161, 1);
   box-shadow: 2px 12px 20px 0px rgba(161, 161, 161, 1);
+}
+
+.large-input {
+  width: 100%;
+  height: 100px;
+  outline: none;
+  resize: none;
 }
 
 .label {
@@ -86,5 +92,14 @@
     -webkit-box-shadow: 2px 5px 10px 0px rgba(161, 161, 161, 1);
     -moz-box-shadow: 2px 5px 10px 0px rgba(161, 161, 161, 1);
     box-shadow: 2px 5px 10px 0px rgba(161, 161, 161, 1);
+  }
+
+  .large-input {
+    margin-top: 10px;
+    height: 150px;
+  }
+
+  .top-margin {
+    margin-top: 45%;
   }
 }

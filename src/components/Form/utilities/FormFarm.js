@@ -1,6 +1,33 @@
 import React from "react";
 import { Form } from "../Form";
 
+export const entryForm = (handleSubmit, user) => {
+  return (
+    <Form
+      initState={{
+        content: "",
+        writer: { ...user },
+      }}
+      btnName="add"
+      handleSubmit={handleSubmit}
+      css="top-margin"
+    >
+      {({ state, onChange }) => {
+        return (
+          <div className="form-wrapper">
+            <textarea
+              className="form-child large-input"
+              name="content"
+              onChange={onChange}
+              value={state.content}
+            ></textarea>
+          </div>
+        );
+      }}
+    </Form>
+  );
+};
+
 export const registerForm = (handleSubmit, setFormType) => {
   return (
     <Form
@@ -81,8 +108,8 @@ export const loginForm = (handleSubmit, setFormType) => {
   return (
     <Form
       initState={{
-        email: "laursy@laura.com",
-        password: "123456",
+        email: "hickok@storii.com",
+        password: "Hickok",
       }}
       btnName="login"
       handleSubmit={handleSubmit}
