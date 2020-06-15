@@ -54,17 +54,20 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
   };
 
   return (
-    <div className="container">
-      <HeaderWithText header="Storii" />
-      <Image src={img} type="long" alt="storii join instructions" />
+    <div className="splitview-container">
+      <div className="container">
+        <HeaderWithText header="Storii" />
+        <Image src={img} type="long" alt="storii join instructions" />
+      </div>
+      <div className="container">
+        {formType === "register" && (
+          <div>{registerForm(handleSubmit, setFormType)}</div>
+        )}
 
-      {formType === "register" && (
-        <div>{registerForm(handleSubmit, setFormType)}</div>
-      )}
-
-      {formType === "login" && (
-        <div>{loginForm(handleSubmit, setFormType)}</div>
-      )}
+        {formType === "login" && (
+          <div>{loginForm(handleSubmit, setFormType)}</div>
+        )}
+      </div>
     </div>
   );
 };

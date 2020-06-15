@@ -13,10 +13,22 @@
 }
 
 body {
-  // font-family: "Caveat", cursive;
+  font-family: "Caveat", cursive;
   overflow-y: scroll;
 }
 
 .container {
   width: 100%;
+}
+
+@media (min-width: 800px) {
+  // .splitview-container {
+  //   display: flex;
+  //   flex-direction: row;
+  //   flex-wrap: nowrap;
+  //   flex: 1;
+  // }
+  // * {
+  //   color: red;
+  // }
 }
