@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { HeaderWithText } from "../../components/HeaderWithText/HeaderWithText";
-import { Image } from "../../components/Image/Image";
-import { Form } from "../../components/Form/Form";
-
-import img from "../../assets/img/iconLong.png";
-
 import { connect } from "react-redux";
 
+import { HeaderWithText } from "../../components/HeaderWithText/HeaderWithText";
+import { Image } from "../../components/Image/Image";
+
+import { registerForm, loginForm } from "../../Utilities/FormFarm";
 import { registerUser, loginUser } from "../../actions/auth";
 import { setAlert } from "../../actions/alert";
+
+import img from "../../assets/img/iconLong.png";
 
 const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
   useEffect(() => {
@@ -54,109 +54,11 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
       <Image src={img} type="long" alt="storii join instructions" />
 
       {formType === "register" && (
-        <div>
-          <Form
-            initState={{
-              penName: "laursy",
-              email: "laursy@laura.com",
-              password: "123456",
-              password2: "123456",
-            }}
-            btnName="create"
-            handleSubmit={handleSubmit}
-          >
-            {({ state, onChange }) => {
-              const { penName, email, password, password2 } = state;
-
-              return (
-                <div>
-                  <label htmlFor="penName">Pen Name:</label>
-                  <input
-                    name="penName"
-                    onChange={onChange}
-                    value={penName}
-                    type="text"
-                    required
-                  />
-                  <label htmlFor="email">Email:</label>
-                  <input
-                    name="email"
-                    onChange={onChange}
-                    value={email}
-                    type="email"
-                    required
-                  />
-                  <label htmlFor="">Password:</label>
-                  <input
-                    name="password"
-                    onChange={onChange}
-                    value={password}
-                    type="password"
-                    required
-                    minLength="6"
-                  />
-                  <label htmlFor="password2">Confirm password:</label>
-                  <input
-                    name="password2"
-                    onChange={onChange}
-                    value={password2}
-                    type="password"
-                    required
-                    minLength="6"
-                  />
-                  <p>
-                    Already a writer?
-                    <a onClick={() => setFormType("login")}>Click here</a>
-                  </p>
-                </div>
-              );
-            }}
-          </Form>
-        </div>
+        <div>{registerForm(handleSubmit, setFormType)}</div>
       )}
 
       {formType === "login" && (
-        <div>
-          <Form
-            initState={{
-              email: "laursy@laura.com",
-              password: "123456",
-            }}
-            btnName="login"
-            handleSubmit={handleSubmit}
-          >
-            {({ state, onChange }) => {
-              const { email, password } = state;
-
-              return (
-                <div>
-                  <label htmlFor="email">Email:</label>
-                  <input
-                    name="email"
-                    onChange={onChange}
-                    value={email}
-                    type="email"
-                    required
-                  />
-                  <label htmlFor="">Password:</label>
-                  <input
-                    name="password"
-                    onChange={onChange}
-                    value={password}
-                    type="password"
-                    required
-                    minLength="6"
-                  />
-
-                  <p>
-                    Not yet a writer?
-                    <a onClick={() => setFormType("register")}>Click here</a>
-                  </p>
-                </div>
-              );
-            }}
-          </Form>
-        </div>
+        <div>{loginForm(handleSubmit, setFormType)}</div>
       )}
     </div>
   );
