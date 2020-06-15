@@ -1,0 +1,14 @@
+.alert {
+  position: sticky;
+  background: #f16a6a;
+  width: 100vw;
+  padding: 2px 0px;
+  overflow-x: hidden;
+  font-size: 0.7em;
+  text-align: center;
+}
+@media (min-width: 800px) {
+  .alert {
+    font-size: 0.6em;
+  }
+}

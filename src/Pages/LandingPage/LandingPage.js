@@ -20,7 +20,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
     if (token) history.push("/storii");
   }, [token]);
 
-  const [formType, setFormType] = useState("login");
+  const [formType, setFormType] = useState("register");
 
   const checkFormIsPopulated = (state) => {
     for (let [key, value] of Object.entries(state)) {
@@ -55,7 +55,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
 
   return (
     <div className="splitview-container">
-      <div className="container">
+      <div>
         <HeaderWithText header="Storii" />
         <Image src={img} type="long" alt="storii join instructions" />
       </div>
