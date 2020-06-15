@@ -9,12 +9,9 @@ export const List = ({ items, Component }) => {
   return (
     <div className="list" data-test="list">
       {items.map((item, index) => {
-        console.log(item);
-
         const penName = item.writer.penName;
         if (colorMap[penName] === undefined) {
           colorMap[item.writer.penName] = colors.pop();
-          console.log(colorMap);
         }
         return (
           <Component
