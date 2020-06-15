@@ -1,6 +1,7 @@
 .entry {
-  border-bottom: 2px dotted grey;
+  border-bottom: 2px dotted #d0cece;
   margin: 8px 2px;
+  font-size: 0.8em;
 }
 
 .writer {
@@ -25,4 +26,14 @@
 }
 .orange {
   color: #f9c34e;
+}
+
+@media (min-width: 800px) {
+  .entry {
+    font-size: 0.7em;
+  }
+
+  .writer {
+    font-size: 0.6em;
+  }
 }

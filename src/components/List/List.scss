@@ -1,4 +1,11 @@
 .list {
-  max-height: 95vh;
+  max-height: 65vh;
   overflow-y: scroll;
+}
+
+@media (min-width: 800px) {
+  .list {
+    max-height: 95vh;
+    overflow-y: scroll;
+  }
 }
