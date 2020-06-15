@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+import "./Form.scss";
 export const Form = (props) => {
   const [state, setState] = useState(props.initState);
 
@@ -34,13 +35,13 @@ export const Form = (props) => {
   };
 
   return (
-    <div data-test="form">
+    <div className="form-wrapper main-wrapper" data-test="form">
       {props.children({
         state,
         onChange,
         onCheckboxChange,
       })}
-      <button onClick={onSubmit} data-test="submit">
+      <button className="button" onClick={onSubmit} data-test="submit">
         {props.btnName || "send"}
       </button>
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Form } from "../components/Form/Form";
+import { Form } from "../Form";
 
 export const registerForm = (handleSubmit, setFormType) => {
   return (
@@ -17,25 +17,34 @@ export const registerForm = (handleSubmit, setFormType) => {
         const { penName, email, password, password2 } = state;
 
         return (
-          <div>
-            <label htmlFor="penName">Pen Name:</label>
+          <div className="form-wrapper">
+            <label className="label" htmlFor="penName">
+              Pen Name:
+            </label>
             <input
+              className="form-child input"
               name="penName"
               onChange={onChange}
               value={penName}
               type="text"
               required
             />
-            <label htmlFor="email">Email:</label>
+            <label className="label" htmlFor="email">
+              Email:
+            </label>
             <input
+              className="form-child input"
               name="email"
               onChange={onChange}
               value={email}
               type="email"
               required
             />
-            <label htmlFor="">Password:</label>
+            <label className="label" htmlFor="">
+              Password:
+            </label>
             <input
+              className="form-child input"
               name="password"
               onChange={onChange}
               value={password}
@@ -43,8 +52,11 @@ export const registerForm = (handleSubmit, setFormType) => {
               required
               minLength="6"
             />
-            <label htmlFor="password2">Confirm password:</label>
+            <label className="label" htmlFor="password2">
+              Confirm password:
+            </label>
             <input
+              className="form-child input"
               name="password2"
               onChange={onChange}
               value={password2}
@@ -52,9 +64,11 @@ export const registerForm = (handleSubmit, setFormType) => {
               required
               minLength="6"
             />
-            <p>
-              Already a writer?
-              <a onClick={() => setFormType("login")}>Click here</a>
+            <p className="form-child link-note">
+              Already a writer? ...
+              <a onClick={() => setFormType("login")}>
+                <span className="highlight">Click here</span>
+              </a>
             </p>
           </div>
         );
@@ -77,17 +91,23 @@ export const loginForm = (handleSubmit, setFormType) => {
         const { email, password } = state;
 
         return (
-          <div>
-            <label htmlFor="email">Email:</label>
+          <div className="form-wrapper">
+            <label className="label" htmlFor="email">
+              Email:
+            </label>
             <input
+              className="form-child input"
               name="email"
               onChange={onChange}
               value={email}
               type="email"
               required
             />
-            <label htmlFor="">Password:</label>
+            <label className="label" htmlFor="">
+              Password:
+            </label>
             <input
+              className="form-child input"
               name="password"
               onChange={onChange}
               value={password}
@@ -96,9 +116,11 @@ export const loginForm = (handleSubmit, setFormType) => {
               minLength="6"
             />
 
-            <p>
-              Not yet a writer?
-              <a onClick={() => setFormType("register")}>Click here</a>
+            <p className="form-child link-note">
+              Not yet a writer? ...
+              <a onClick={() => setFormType("register")}>
+                <span className="highlight">Click here</span>
+              </a>
             </p>
           </div>
         );

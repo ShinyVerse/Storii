@@ -4,11 +4,16 @@ import { connect } from "react-redux";
 import { HeaderWithText } from "../../components/HeaderWithText/HeaderWithText";
 import { Image } from "../../components/Image/Image";
 
-import { registerForm, loginForm } from "../../Utilities/FormFarm";
+import {
+  registerForm,
+  loginForm,
+} from "../../components/Form/utilities/FormFarm";
 import { registerUser, loginUser } from "../../actions/auth";
 import { setAlert } from "../../actions/alert";
 
 import img from "../../assets/img/iconLong.png";
+
+import "../../App.scss";
 
 const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
   useEffect(() => {
@@ -49,7 +54,7 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
   };
 
   return (
-    <div>
+    <div className="container">
       <HeaderWithText header="Storii" />
       <Image src={img} type="long" alt="storii join instructions" />
 
