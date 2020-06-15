@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+
 import { HeaderWithText } from "../../components/HeaderWithText/HeaderWithText";
 import { Image } from "../../components/Image/Image";
-import { Form } from "../../components/Form/Form";
-
-import img from "../../assets/img/iconLong.png";
-
-import { connect } from "react-redux";
 
 import { registerForm, loginForm } from "../../Utilities/FormFarm";
 import { registerUser, loginUser } from "../../actions/auth";
 import { setAlert } from "../../actions/alert";
+
+import img from "../../assets/img/iconLong.png";
 
 const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
   useEffect(() => {
