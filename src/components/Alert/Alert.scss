@@ -1,6 +1,8 @@
+@import "../../scss-themes/colors.scss";
+
 .alert {
   position: sticky;
-  background: #f16a6a;
+  background: $soft-red;
   width: 100vw;
   padding: 2px 0px;
   overflow-x: hidden;

@@ -1,5 +1,7 @@
+@import "../../scss-themes/colors.scss";
+
 .entry {
-  border-bottom: 2px dotted #d0cece;
+  border-bottom: 2px dotted $soft-grey;
   margin: 8px 2px;
   font-size: 0.8em;
 }
@@ -10,11 +12,11 @@
 }
 
 .pink {
-  color: #eb93de;
+  color: $soft-pink;
 }
 
 .red {
-  color: #f16a6a;
+  color: $soft-red;
 }
 
 .green {
@@ -22,7 +24,7 @@
 }
 
 .blue {
-  color: #77e5f9;
+  color: $soft-blue;
 }
 .orange {
   color: #f9c34e;

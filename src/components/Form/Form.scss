@@ -1,3 +1,5 @@
+@import "../../scss-themes/colors.scss";
+
 .form-wrapper {
   width: 90%;
   display: flex;
@@ -9,9 +11,9 @@
 }
 .main-wrapper {
   border-radius: 20px;
-  -webkit-box-shadow: 2px 12px 20px 0px rgba(161, 161, 161, 1);
-  -moz-box-shadow: 2px 12px 20px 0px rgba(161, 161, 161, 1);
-  box-shadow: 2px 12px 20px 0px rgba(161, 161, 161, 1);
+  -webkit-box-shadow: 2px 12px 20px 0px $soft-grey;
+  -moz-box-shadow: 2px 12px 20px 0px $soft-grey;
+  box-shadow: 2px 12px 20px 0px $soft-grey;
 }
 
 .large-input {
@@ -48,7 +50,7 @@
 }
 
 .highlight {
-  color: #2e90d6;
+  color: $soft-blue;
 }
 
 .button {
@@ -60,7 +62,7 @@
   text-align: center;
   cursor: pointer;
   outline: none;
-  background-color: #2e90d6;
+  background-color: $soft-blue;
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -70,8 +72,8 @@
 }
 
 .button:active {
-  background-color: #eb93de;
-  box-shadow: 0 1px #acacac;
+  background-color: $soft-pink;
+  box-shadow: 0 1px $grey;
   transform: translateY(1px);
 }
 
@@ -89,9 +91,9 @@
   }
 
   .main-wrapper {
-    -webkit-box-shadow: 2px 5px 10px 0px rgba(161, 161, 161, 1);
-    -moz-box-shadow: 2px 5px 10px 0px rgba(161, 161, 161, 1);
-    box-shadow: 2px 5px 10px 0px rgba(161, 161, 161, 1);
+    -webkit-box-shadow: 2px 5px 10px 0px $soft-grey;
+    -moz-box-shadow: 2px 5px 10px 0px $soft-grey;
+    box-shadow: 2px 5px 10px 0px $soft-grey;
   }
 
   .large-input {
