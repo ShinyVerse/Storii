@@ -39,6 +39,7 @@ export const registerForm = (handleSubmit, setFormType) => {
       }}
       btnName="create"
       handleSubmit={handleSubmit}
+      data-test="registerForm"
     >
       {({ state, onChange }) => {
         const { penName, email, password, password2 } = state;
@@ -113,6 +114,7 @@ export const loginForm = (handleSubmit, setFormType) => {
       }}
       btnName="login"
       handleSubmit={handleSubmit}
+      data-test="loginForm"
     >
       {({ state, onChange }) => {
         const { email, password } = state;

@@ -15,7 +15,13 @@ import img from "../../assets/img/iconLong.png";
 
 import "../../App.scss";
 
-const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
+export const LandingPage = ({
+  registerUser,
+  setAlert,
+  loginUser,
+  history,
+  token,
+}) => {
   useEffect(() => {
     if (token) history.push("/storii");
   }, [token]);
@@ -61,11 +67,33 @@ const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
       </div>
       <div className="container">
         {formType === "register" && (
-          <div>{registerForm(handleSubmit, setFormType)}</div>
+          <div>
+            {registerForm(handleSubmit, setFormType)}
+            <p>
+              Already a writer?
+              <a
+                onClick={() => setFormType("login")}
+                data-test="toLoginFormLink"
+              >
+                Click here
+              </a>
+            </p>
+          </div>
         )}
 
         {formType === "login" && (
-          <div>{loginForm(handleSubmit, setFormType)}</div>
+          <div>
+            {loginForm(handleSubmit, setFormType)}
+            <p>
+              Not yet a writer?
+              <a
+                onClick={() => setFormType("register")}
+                data-test="toRegisterFormLink"
+              >
+                Click here
+              </a>
+            </p>
+          </div>
         )}
       </div>
     </div>
