@@ -5,7 +5,7 @@
       "./src/enzyme.setup.js"
     ],
     "moduleNameMapper": {
-      "\\.(s?css|less)$": "identity-obj-proxy"
+      "\\.(s?css|less|png)$": "identity-obj-proxy"
     }
   },
   "version": "1.0.0",

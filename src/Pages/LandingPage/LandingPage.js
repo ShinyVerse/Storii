@@ -10,7 +10,13 @@ import { setAlert } from "../../actions/alert";
 
 import img from "../../assets/img/iconLong.png";
 
-const LandingPage = ({ registerUser, setAlert, loginUser, history, token }) => {
+export const LandingPage = ({
+  registerUser,
+  setAlert,
+  loginUser,
+  history,
+  token,
+}) => {
   useEffect(() => {
     if (token) history.push("/storii");
   }, [token]);
