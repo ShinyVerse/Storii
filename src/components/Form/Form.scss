@@ -1,4 +1,5 @@
 @import "../../scss-themes/colors.scss";
+@import "../../scss-themes/sizes.scss";
 
 .form-wrapper {
   width: 90%;
@@ -28,7 +29,7 @@
 }
 
 .form-child {
-  font-size: 0.5em;
+  font-size: $smallestFont;
   width: 80%;
   padding: 0px;
   margin-top: 0.5em;
@@ -46,7 +47,7 @@
 
 .link-note {
   text-align: center;
-  font-size: 0.5em;
+  font-size: $smallestFont;
 }
 
 .highlight {
@@ -55,7 +56,7 @@
 
 .button {
   width: 40%;
-  font-size: 0.5em;
+  font-size: $smallestFont;
   padding: 10px;
   margin-bottom: 20px;
   padding: 5px 10px;
@@ -83,7 +84,7 @@
     margin-bottom: 7px;
   }
   .label {
-    font-size: 0.5em;
+    font-size: $smallestFont;
   }
   .form-wrapper {
     width: 95%;
