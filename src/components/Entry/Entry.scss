@@ -1,0 +1,42 @@
+@import "../../scss-themes/colors.scss";
+@import "../../scss-themes/sizes.scss";
+
+.entry {
+  border-bottom: 2px dotted $soft-grey;
+  margin: 8px 2px;
+  font-size: 0.8em;
+}
+
+.writer {
+  font-size: $smallestFont;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pink {
+  color: $soft-pink;
+}
+
+.red {
+  color: $soft-red;
+}
+
+.green {
+  color: #91ed82;
+}
+
+.blue {
+  color: $soft-blue;
+}
+.orange {
+  color: #f9c34e;
+}
+
+@media (min-width: 800px) {
+  .entry {
+    font-size: $smallFont;
+  }
+
+  .writer {
+    font-size: $smallestFont;
+  }
+}

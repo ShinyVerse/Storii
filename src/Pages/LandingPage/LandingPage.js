@@ -4,11 +4,16 @@ import { connect } from "react-redux";
 import { HeaderWithText } from "../../components/HeaderWithText/HeaderWithText";
 import { Image } from "../../components/Image/Image";
 
-import { registerForm, loginForm } from "../../Utilities/FormFarm";
+import {
+  registerForm,
+  loginForm,
+} from "../../components/Form/utilities/FormFarm";
 import { registerUser, loginUser } from "../../actions/auth";
 import { setAlert } from "../../actions/alert";
 
 import img from "../../assets/img/iconLong.png";
+
+import "../../App.scss";
 
 export const LandingPage = ({
   registerUser,
@@ -55,36 +60,42 @@ export const LandingPage = ({
   };
 
   return (
-    <div>
-      <HeaderWithText header="Storii" />
-      <Image src={img} type="long" alt="storii join instructions" />
+    <div className="splitview-container">
+      <div>
+        <HeaderWithText header="Storii" />
+        <Image src={img} type="long" alt="storii join instructions" />
+      </div>
+      <div className="container">
+        {formType === "register" && (
+          <div>
+            {registerForm(handleSubmit, setFormType)}
+            <p>
+              Already a writer?
+              <a
+                onClick={() => setFormType("login")}
+                data-test="toLoginFormLink"
+              >
+                Click here
+              </a>
+            </p>
+          </div>
+        )}
 
-      {formType === "register" && (
-        <div>
-          {registerForm(handleSubmit, setFormType)}
-          <p>
-            Already a writer?
-            <a onClick={() => setFormType("login")} data-test="toLoginFormLink">
-              Click here
-            </a>
-          </p>
-        </div>
-      )}
-
-      {formType === "login" && (
-        <div>
-          {loginForm(handleSubmit, setFormType)}
-          <p>
-            Not yet a writer?
-            <a
-              onClick={() => setFormType("register")}
-              data-test="toRegisterFormLink"
-            >
-              Click here
-            </a>
-          </p>
-        </div>
-      )}
+        {formType === "login" && (
+          <div>
+            {loginForm(handleSubmit, setFormType)}
+            <p>
+              Not yet a writer?
+              <a
+                onClick={() => setFormType("register")}
+                data-test="toRegisterFormLink"
+              >
+                Click here
+              </a>
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

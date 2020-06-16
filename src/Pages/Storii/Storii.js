@@ -7,7 +7,7 @@ import { loadUser } from "../../actions/auth";
 import { getStorii } from "../../actions/storii";
 import { setAlert } from "../../actions/alert";
 import { Entry } from "../../components/Entry/Entry";
-import { Form } from "../../components/Form/Form";
+import { entryForm } from "../../components/Form/utilities/FormFarm";
 
 import { List } from "../../components/List/List";
 
@@ -66,31 +66,13 @@ export const Storii = ({
   };
 
   return (
-    <div>
-      {storii && <List items={entries} Component={Entry} />}
-
-      {isAuthenticated() && user && (
-        <Form
-          initState={{
-            content: "",
-            writer: { ...user },
-          }}
-          btnName="add"
-          handleSubmit={handleSubmit}
-        >
-          {({ state, onChange }) => {
-            return (
-              <div>
-                <textarea
-                  name="content"
-                  onChange={onChange}
-                  value={state.content}
-                ></textarea>
-              </div>
-            );
-          }}
-        </Form>
-      )}
+    <div className="splitview-container-start">
+      <div className="scrollable-container">
+        {storii && <List items={entries} Component={Entry} />}
+      </div>
+      <div className="sticky-form">
+        {isAuthenticated() && user && entryForm(handleSubmit, user)}
+      </div>
     </div>
   );
 };

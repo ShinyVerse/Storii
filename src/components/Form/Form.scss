@@ -1,0 +1,108 @@
+@import "../../scss-themes/colors.scss";
+@import "../../scss-themes/sizes.scss";
+
+.form-wrapper {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px auto;
+  justify-content: space-around;
+  margin: 10px auto;
+}
+.main-wrapper {
+  border-radius: 20px;
+  -webkit-box-shadow: 2px 12px 20px 0px $soft-grey;
+  -moz-box-shadow: 2px 12px 20px 0px $soft-grey;
+  box-shadow: 2px 12px 20px 0px $soft-grey;
+}
+
+.large-input {
+  width: 100%;
+  height: 100px;
+  outline: none;
+  resize: none;
+}
+
+.label {
+  font-size: 0.6em;
+}
+
+.form-child {
+  font-size: $smallestFont;
+  width: 80%;
+  padding: 0px;
+  margin-top: 0.5em;
+  margin-bottom: 10px;
+}
+
+.input {
+  border-radius: 3px;
+  padding: 7px;
+  text-align: center;
+  outline: none;
+  border: solid black 1px;
+  border-bottom: solid black 3px;
+}
+
+.link-note {
+  text-align: center;
+  font-size: $smallestFont;
+}
+
+.highlight {
+  color: $soft-blue;
+}
+
+.button {
+  width: 40%;
+  font-size: $smallestFont;
+  padding: 10px;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  background-color: $soft-blue;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(161, 161, 161, 1);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(161, 161, 161, 1);
+  box-shadow: 2px 2px 5px 0px rgba(161, 161, 161, 1);
+}
+
+.button:active {
+  background-color: $soft-pink;
+  box-shadow: 0 1px $grey;
+  transform: translateY(1px);
+}
+
+@media (min-width: 800px) {
+  .input {
+    padding: 2px 1px;
+    margin-bottom: 7px;
+  }
+  .label {
+    font-size: $smallestFont;
+  }
+  .form-wrapper {
+    width: 95%;
+    margin: 5px auto;
+  }
+
+  .main-wrapper {
+    -webkit-box-shadow: 2px 5px 10px 0px $soft-grey;
+    -moz-box-shadow: 2px 5px 10px 0px $soft-grey;
+    box-shadow: 2px 5px 10px 0px $soft-grey;
+  }
+
+  .large-input {
+    margin-top: 10px;
+    height: 150px;
+  }
+
+  .top-margin {
+    margin-top: 45%;
+  }
+}

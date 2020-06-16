@@ -18,10 +18,12 @@ describe("List", () => {
   it("renders correct amount of items when given", () => {
     const items = [
       {
-        name: "Bob",
+        writer: {
+          penName: "Bob",
+        },
       },
       {
-        name: "Ashe",
+        writer: { penName: "Ashe" },
       },
     ];
 
@@ -32,22 +34,22 @@ describe("List", () => {
   });
 
   it("renders correct info to each child Component", () => {
-    const entries = [
+    const items = [
       {
-        content: "I enjoy Mondays",
+        writer: {
+          penName: "Bob",
+        },
       },
       {
-        content: "wtf mate?",
+        writer: { penName: "Ashe" },
       },
     ];
 
-    const wrapper = shallow(
-      <List items={entries} Component={DummyComponent} />,
-    );
+    const wrapper = shallow(<List items={items} Component={DummyComponent} />);
     const listItemElements = wrapper.find('[data-test="list-item"]');
 
     listItemElements.forEach((element, index) => {
-      expect(element.props().item).toBe(entries[index]);
+      expect(element.props().item).toBe(items[index]);
     });
   });
 });
