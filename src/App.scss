@@ -55,7 +55,8 @@ body {
 
   .sticky-form {
     position: relative;
-    margin-top: 20%;
+    align-self: flex-end;
+    margin-bottom: 20px;
     width: 80%;
   }
 
@@ -64,9 +65,3 @@ body {
     height: 100%;
   }
 }
-
-// @media (min-width: 1024px) {
-//   .sticky-form {
-//     justify-self: flex-end;
-//   }
-// }
