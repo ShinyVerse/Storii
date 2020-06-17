@@ -24,10 +24,10 @@ export const Storii = ({
   const bottomOfEntries = useRef(null);
   const [entries, setEntries] = useState([]);
 
-  const scrollToBottom = () => {
+  const scrollToBottom = (scrollType = "smooth") => {
     bottomOfEntries.current.scrollIntoView({
+      behavior: scrollType,
       block: "end",
-      behavior: "smooth",
     });
   };
 
@@ -66,7 +66,11 @@ export const Storii = ({
   useEffect(() => {
     if (storii.entries) {
       setEntries(storii.entries);
+      setTimeout(() => {
+        scrollToBottom("auto");
+      }, 200);
     }
+    scrollToBottom();
   }, [storii]);
 
   const handleSubmit = (state) => {
@@ -77,8 +81,9 @@ export const Storii = ({
   return (
     <div className="splitview-container-start">
       <div className="scrollable-container">
-        {storii && <List items={entries} Component={Entry} />}
-        <div id="bottomOfEntries" ref={bottomOfEntries} />
+        {storii && (
+          <List items={entries} Component={Entry} refName={bottomOfEntries} />
+        )}
       </div>
       <div className="sticky-form">
         {isAuthenticated() && user && entryForm(handleSubmit, user)}
