@@ -4,7 +4,7 @@
 .entry {
   border-bottom: 2px dotted $soft-grey;
   margin: 8px 2px;
-  font-size: 0.8em;
+  font-size: $mediumFont;
 }
 
 .writer {
@@ -33,7 +33,7 @@
 
 @media (min-width: 800px) {
   .entry {
-    font-size: $smallFont;
+    font-size: $mediumFont;
   }
 
   .writer {
