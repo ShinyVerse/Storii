@@ -84,7 +84,6 @@ export const Storii = ({
         scrollToBottom("auto");
       }, 200);
     }
-    scrollToBottom();
   }, [storii]);
 
   const handleSubmit = (state) => {

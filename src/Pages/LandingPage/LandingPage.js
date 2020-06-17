@@ -21,12 +21,13 @@ export const LandingPage = ({
   loginUser,
   history,
   token,
+  form,
 }) => {
   useEffect(() => {
     if (token) history.push("/storii");
   }, [token]);
 
-  const [formType, setFormType] = useState("login");
+  const [formType, setFormType] = useState(form);
 
   const checkFormIsPopulated = (state) => {
     for (let [key, value] of Object.entries(state)) {
@@ -67,33 +68,11 @@ export const LandingPage = ({
       </div>
       <div className="container">
         {formType === "register" && (
-          <div>
-            {registerForm(handleSubmit, setFormType)}
-            <p>
-              Already a writer?
-              <a
-                onClick={() => setFormType("login")}
-                data-test="toLoginFormLink"
-              >
-                Click here
-              </a>
-            </p>
-          </div>
+          <div>{registerForm(handleSubmit, setFormType)}</div>
         )}
 
         {formType === "login" && (
-          <div>
-            {loginForm(handleSubmit, setFormType)}
-            <p>
-              Not yet a writer?
-              <a
-                onClick={() => setFormType("register")}
-                data-test="toRegisterFormLink"
-              >
-                Click here
-              </a>
-            </p>
-          </div>
+          <div>{loginForm(handleSubmit, setFormType)}</div>
         )}
       </div>
     </div>
@@ -103,6 +82,10 @@ export const LandingPage = ({
 const mapStateToProps = (state) => ({
   token: state.auth.token,
 });
+
+LandingPage.defaultProps = {
+  form: "login",
+};
 
 export default connect(mapStateToProps, {
   registerUser,
