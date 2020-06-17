@@ -10,7 +10,7 @@
   font-size: $mediumFont;
   text-align: center;
 }
-@media (min-width: 800px) {
+@media (min-width: 768px) {
   .alert {
     font-size: $smallestFont;
   }
