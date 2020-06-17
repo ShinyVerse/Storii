@@ -15,7 +15,7 @@ describe("alert action", () => {
       response(dispatch);
 
       expect(dispatchResult).toEqual({
-        payload: message,
+        payload: { message, type: undefined },
         type: SET_ALERT,
       });
     } catch (err) {

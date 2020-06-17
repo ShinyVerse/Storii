@@ -5,7 +5,7 @@ import openSocket from "socket.io-client";
 import { connect } from "react-redux";
 import { loadUser } from "../../actions/auth";
 import { getStorii } from "../../actions/storii";
-import { setAlert } from "../../actions/alert";
+import { setAlert, clearAlert } from "../../actions/alert";
 import { Entry } from "../../components/Entry/Entry";
 import { entryForm } from "../../components/Form/utilities/FormFarm";
 
@@ -16,6 +16,7 @@ const ws = openSocket("http://localhost:4000");
 export const Storii = ({
   loadUser,
   setAlert,
+  clearAlert,
   user,
   storii,
   getStorii,
@@ -48,7 +49,7 @@ export const Storii = ({
     try {
       await getStorii("5ec66337ac935260a11e1388");
     } catch (err) {
-      console.log(err);
+      setAlert(err.msg);
     }
   };
 
@@ -59,6 +60,11 @@ export const Storii = ({
           setTimeout(() => {
             scrollToBottom();
           }, 100);
+        } else {
+          setAlert("new message!", "event");
+          setTimeout(() => {
+            clearAlert();
+          }, 2000);
         }
       }
 
@@ -109,4 +115,5 @@ export default connect(mapStateToProps, {
   getStorii,
   loadUser,
   setAlert,
+  clearAlert,
 })(Storii);

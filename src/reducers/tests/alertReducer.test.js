@@ -19,11 +19,30 @@ describe("alertReducer", () => {
   it("update state when setAlert is called", () => {
     const action = {
       type: types.SET_ALERT,
-      payload: "dangerousMessage",
+      payload: {
+        message: "dangerousMessage",
+      },
     };
 
     const expectedState = {
-      message: action.payload,
+      message: action.payload.message,
+      type: undefined,
+    };
+
+    const state = alertReducer(undefined, action);
+
+    expect(state).toEqual(expectedState);
+  });
+
+  it("update state with type when comes though", () => {
+    const action = {
+      type: types.SET_ALERT,
+      payload: { message: "dangerousMessage", type: "event" },
+    };
+
+    const expectedState = {
+      message: action.payload.message,
+      type: "event",
     };
 
     const state = alertReducer(undefined, action);

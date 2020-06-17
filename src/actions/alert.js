@@ -1,10 +1,10 @@
 import * as types from "./types";
 
-export const setAlert = (message) => (dispatch) => {
+export const setAlert = (message, type) => (dispatch) => {
   try {
     dispatch({
       type: types.SET_ALERT,
-      payload: message,
+      payload: { message, type },
     });
   } catch (err) {
     console.error(err);

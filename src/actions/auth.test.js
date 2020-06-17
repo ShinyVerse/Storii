@@ -81,7 +81,7 @@ describe("auth action", () => {
         expect(mockAxios.post).toHaveBeenCalledTimes(1);
 
         expect(dispatch).toHaveBeenCalledWith({
-          payload: "user already exists",
+          payload: { message: "user already exists", type: undefined },
           type: types.SET_ALERT,
         });
       } catch (err) {
@@ -152,7 +152,7 @@ describe("auth action", () => {
         expect(mockAxios.post).toHaveBeenCalledTimes(1);
 
         expect(dispatch).toHaveBeenCalledWith({
-          payload: "Invalid credentials",
+          payload: { message: "Invalid credentials", type: undefined },
           type: types.SET_ALERT,
         });
       } catch (err) {
@@ -209,7 +209,7 @@ describe("auth action", () => {
         expect(mockAxios.get).toHaveBeenCalledTimes(1);
 
         expect(dispatch).toHaveBeenCalledWith({
-          payload: "You need to sign in",
+          payload: { message: "You need to sign in", type: undefined },
           type: types.SET_ALERT,
         });
       } catch (err) {

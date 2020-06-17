@@ -9,7 +9,8 @@ export default (state = initialState, action) => {
     case types.SET_ALERT:
       return {
         ...state,
-        message: action.payload,
+        message: action.payload.message,
+        type: action.payload.type,
       };
     case types.CLEAR_ALERT:
       return {
