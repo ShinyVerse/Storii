@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 import openSocket from "socket.io-client";
 
@@ -21,7 +21,15 @@ export const Storii = ({
   getStorii,
   history,
 }) => {
+  const bottomOfEntries = useRef(null);
   const [entries, setEntries] = useState([]);
+
+  const scrollToBottom = () => {
+    bottomOfEntries.current.scrollIntoView({
+      block: "end",
+      behavior: "smooth",
+    });
+  };
 
   const isAuthenticated = async () => {
     if (user) {
@@ -63,12 +71,14 @@ export const Storii = ({
 
   const handleSubmit = (state) => {
     ws.emit("message", state);
+    scrollToBottom();
   };
 
   return (
     <div className="splitview-container-start">
       <div className="scrollable-container">
         {storii && <List items={entries} Component={Entry} />}
+        <div id="bottomOfEntries" ref={bottomOfEntries} />
       </div>
       <div className="sticky-form">
         {isAuthenticated() && user && entryForm(handleSubmit, user)}

@@ -10,8 +10,9 @@
   text-align: center;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 768px) {
   .header {
-    margin: 5px auto 20%;
+    font-size: 4em;
+    margin: 5px auto 10%;
   }
 }

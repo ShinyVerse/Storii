@@ -7,10 +7,10 @@
   width: 100vw;
   padding: 2px 0px;
   overflow-x: hidden;
-  font-size: $smallFont;
+  font-size: $mediumFont;
   text-align: center;
 }
-@media (min-width: 800px) {
+@media (min-width: 768px) {
   .alert {
     font-size: $smallestFont;
   }
