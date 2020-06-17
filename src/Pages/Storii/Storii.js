@@ -54,6 +54,14 @@ export const Storii = ({
 
   useEffect(() => {
     ws.on("new-message", (message) => {
+      if (user) {
+        if (message.writer._id === user._id) {
+          setTimeout(() => {
+            scrollToBottom();
+          }, 100);
+        }
+      }
+
       const updatedEntries = [...entries, message];
       setEntries(updatedEntries);
     });
