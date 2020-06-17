@@ -10,26 +10,14 @@ describe("LandingPage", () => {
 
     expect(loginForm.length).toBe(1);
   });
-  it("should display register form when clicking on register here link", () => {
-    const wrapper = shallow(<LandingPage />);
-    const toRegisterFormLink = wrapper.find('[data-test="toRegisterFormLink"]');
-
-    toRegisterFormLink.simulate("click");
-
+  it("should display register form when formType is set to register", () => {
+    const wrapper = shallow(<LandingPage form="register" />);
     const registerForm = wrapper.find('[data-test="registerForm"]');
 
     expect(registerForm.length).toBe(1);
   });
-  it("should display login form when clicking on change form link twice", () => {
-    const wrapper = shallow(<LandingPage />);
-    const toRegisterFormLink = wrapper.find('[data-test="toRegisterFormLink"]');
-
-    toRegisterFormLink.simulate("click");
-
-    const toLoginFormLink = wrapper.find('[data-test="toLoginFormLink"]');
-
-    toLoginFormLink.simulate("click");
-
+  it("should display login form when formType is set to login", () => {
+    const wrapper = shallow(<LandingPage form="login" />);
     const loginForm = wrapper.find('[data-test="loginForm"]');
 
     expect(loginForm.length).toBe(1);
