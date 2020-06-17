@@ -2,7 +2,7 @@ import React from "react";
 
 import "./List.scss";
 
-export const List = ({ items, Component }) => {
+export const List = ({ items, Component, refName }) => {
   const colorMap = {};
   const colors = ["pink", "red", "green", "blue", "orange"];
 
@@ -22,6 +22,8 @@ export const List = ({ items, Component }) => {
           />
         );
       })}
+
+      <div id="bottomOfEntries" ref={refName} />
     </div>
   );
 };
