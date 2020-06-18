@@ -15,7 +15,7 @@ export const loadUser = () => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: types.SET_ALERT,
-      payload: err.response.data.msg,
+      payload: { message: err.response.data.msg },
     });
   }
 };
@@ -51,7 +51,7 @@ export const registerUser = ({ penName, email, password }) => async (
   } catch (err) {
     dispatch({
       type: types.SET_ALERT,
-      payload: err.response.data.msg,
+      payload: { message: err.response.data.msg },
     });
   }
 };
@@ -84,7 +84,7 @@ export const loginUser = ({ email, password }) => async (dispatch) => {
   } catch (err) {
     dispatch({
       type: types.SET_ALERT,
-      payload: err.response.data.msg,
+      payload: { message: err.response.data.msg },
     });
   }
 };

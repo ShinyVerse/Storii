@@ -3,13 +3,21 @@
 
 .alert {
   position: sticky;
-  background: $soft-red;
   width: 100vw;
   padding: 2px 0px;
   overflow-x: hidden;
   font-size: $mediumFont;
   text-align: center;
 }
+
+.danger {
+  background: $soft-red;
+}
+
+.event {
+  background: $soft-green;
+}
+
 @media (min-width: 768px) {
   .alert {
     font-size: $smallestFont;

@@ -4,11 +4,11 @@ import { connect } from "react-redux";
 
 import "./Alert.scss";
 
-export const Alert = ({ alert: { message } }) => {
+export const Alert = ({ alert: { message, type = "danger" } }) => {
   const alertStatus = () => {
     if (message) {
       return (
-        <div className="alert" data-test="alert">
+        <div className={`alert ${type}`} data-test="alert">
           {message}
         </div>
       );
