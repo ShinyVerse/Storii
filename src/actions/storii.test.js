@@ -36,7 +36,7 @@ describe("storii action", () => {
 
         expect(mockAxios.get).toHaveBeenCalledTimes(1);
         expect(mockAxios.get).toHaveBeenCalledWith(
-          `http://localhost:4000/storii/${DUMMY_ID}`,
+          `${process.env.storii_server_url}/storii/${DUMMY_ID}`,
         );
 
         const expectedPayload = {

@@ -33,7 +33,7 @@ describe("auth action", () => {
 
         expect(mockAxios.post).toHaveBeenCalledTimes(1);
         expect(mockAxios.post).toHaveBeenCalledWith(
-          "http://localhost:4000/users",
+          `${process.env.storii_server_url}/users`,
           user,
           {
             headers: { "Content-Type": "application/json" },
@@ -104,7 +104,7 @@ describe("auth action", () => {
 
         expect(mockAxios.post).toHaveBeenCalledTimes(1);
         expect(mockAxios.post).toHaveBeenCalledWith(
-          "http://localhost:4000/auth",
+          `${process.env.storii_server_url}/auth`,
           user,
           {
             headers: { "Content-Type": "application/json" },
@@ -180,7 +180,7 @@ describe("auth action", () => {
 
         expect(mockAxios.get).toHaveBeenCalledTimes(1);
         expect(mockAxios.get).toHaveBeenCalledWith(
-          "http://localhost:4000/auth",
+          `${process.env.storii_server_url}/auth`,
           {
             headers: { "x-auth-token": defaultToken },
           },
