@@ -13,9 +13,10 @@
   "main": "./src/index.js",
   "scripts": {
     "test": "jest --watch",
-    "build": "NODE_ENV=production webpack -p --config webpack.config.js",
+    "build": "NODE_ENV=production webpack -p --config webpack.config.prod.js",
     "start-dev": "webpack-dev-server --inline",
-    "start": "NODE_ENV=production webpack -p --config webpack.config.js",
+    "build-dev": "NODE_ENV=development webpack --config webpack.config.prod.js",
+    "start": "NODE_ENV=production webpack -p --config webpack.config.prod.js",
     "heroku-postbuild": "npm install && npm run build"
   },
   "keywords": [],
@@ -40,6 +41,7 @@
     "axios": "^0.19.2",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.2",
+    "dotenv": "^8.2.0",
     "dotenv-webpack": "^1.8.0",
     "file-loader": "^6.0.0",
     "node-sass": "^4.14.1",
