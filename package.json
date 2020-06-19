@@ -13,8 +13,9 @@
   "main": "./src/index.js",
   "scripts": {
     "test": "jest --watch",
-    "build": "webpack",
-    "start": "webpack-dev-server --inline",
+    "build": "NODE_ENV=production webpack -p --config webpack.config.js",
+    "start-dev": "webpack-dev-server --inline",
+    "start": "NODE_ENV=production webpack -p --config webpack.config.js",
     "heroku-postbuild": "npm install && npm run build"
   },
   "keywords": [],
