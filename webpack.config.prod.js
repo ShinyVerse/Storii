@@ -23,7 +23,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {
-        YOUR_VARIABLE: JSON.stringify(process.env.YOUR_VARIABLE),
+        STORII_SERVER_URL: JSON.stringify(process.env.STORII_SERVER_URL),
       },
     }),
   ],
