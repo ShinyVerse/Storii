@@ -1,5 +1,9 @@
 {
   "name": "storii",
+  "engines": {
+    "node": "12.18.0",
+    "npm": "6.14.4"
+  },
   "jest": {
     "setupFilesAfterEnv": [
       "./src/enzyme.setup.js"
