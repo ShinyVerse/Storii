@@ -7,7 +7,10 @@ export const loadUser = () => async (dispatch) => {
   const config = { headers: { "x-auth-token": token } };
 
   try {
-    const res = await axios.get("http://localhost:4000/auth", config);
+    const res = await axios.get(
+      `${process.env.STORII_SERVER_URL}/auth`,
+      config,
+    );
     dispatch({
       type: types.LOAD_USER,
       payload: res.data,
@@ -37,7 +40,7 @@ export const registerUser = ({ penName, email, password }) => async (
 
   try {
     const res = await axios.post(
-      "http://localhost:4000/users",
+      `${process.env.STORII_SERVER_URL}/users`,
       newUser,
       config,
     );
@@ -70,10 +73,11 @@ export const loginUser = ({ email, password }) => async (dispatch) => {
 
   try {
     const res = await axios.post(
-      "http://localhost:4000/auth",
+      `${process.env.STORII_SERVER_URL}/auth`,
       existingUser,
       config,
     );
+
     dispatch({
       type: types.CLEAR_ALERT,
     });

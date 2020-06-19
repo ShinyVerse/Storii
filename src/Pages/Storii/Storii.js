@@ -11,7 +11,7 @@ import { entryForm } from "../../components/Form/utilities/FormFarm";
 
 import { List } from "../../components/List/List";
 
-const ws = openSocket("http://localhost:4000");
+const ws = openSocket(process.env.STORII_SERVER_URL);
 
 export const Storii = ({
   loadUser,
