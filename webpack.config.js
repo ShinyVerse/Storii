@@ -8,10 +8,12 @@ module.exports = {
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
   },
   devServer: {
     hot: true,
     contentBase: path.join(__dirname, "dist"),
+    historyApiFallback: true,
   },
   plugins: [new Dotenv()],
   module: {
