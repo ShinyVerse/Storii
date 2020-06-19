@@ -4,8 +4,12 @@ const webpack = require("webpack");
 require("dotenv").config();
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: "./src/index.js",
+  devtool: false,
+  performance: {
+    hints: false,
+  },
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
