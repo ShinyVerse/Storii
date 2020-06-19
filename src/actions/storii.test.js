@@ -17,7 +17,7 @@ describe("storii action", () => {
     jest.clearAllMocks();
   });
   describe("getStorii", () => {
-    it.only("is successful", async () => {
+    it("is successful", async () => {
       mockAxios.get.mockImplementationOnce(
         async () =>
           await Promise.resolve({
@@ -36,7 +36,7 @@ describe("storii action", () => {
 
         expect(mockAxios.get).toHaveBeenCalledTimes(1);
         expect(mockAxios.get).toHaveBeenCalledWith(
-          `${process.env.storii_server_url}/storii/${DUMMY_ID}`,
+          `${process.env.STORII_SERVER_URL}/storii/${DUMMY_ID}`,
         );
 
         const expectedPayload = {

@@ -8,7 +8,7 @@ export const loadUser = () => async (dispatch) => {
 
   try {
     const res = await axios.get(
-      `${process.env.storii_server_url}/auth`,
+      `${process.env.STORII_SERVER_URL}/auth`,
       config,
     );
     dispatch({
@@ -40,7 +40,7 @@ export const registerUser = ({ penName, email, password }) => async (
 
   try {
     const res = await axios.post(
-      `${process.env.storii_server_url}/users`,
+      `${process.env.STORII_SERVER_URL}/users`,
       newUser,
       config,
     );
@@ -73,10 +73,11 @@ export const loginUser = ({ email, password }) => async (dispatch) => {
 
   try {
     const res = await axios.post(
-      `${process.env.storii_server_url}/auth`,
+      `${process.env.STORII_SERVER_URL}/auth`,
       existingUser,
       config,
     );
+
     dispatch({
       type: types.CLEAR_ALERT,
     });

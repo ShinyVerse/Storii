@@ -4,7 +4,7 @@ import axios from "axios";
 export const getStorii = (id) => async (dispatch) => {
   try {
     const res = await axios.get(
-      `${process.env.storii_server_url}/storii/${id}`,
+      `${process.env.STORII_SERVER_URL}/storii/${id}`,
     );
 
     dispatch({

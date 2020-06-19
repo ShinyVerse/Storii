@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   mode: "development",
@@ -12,6 +13,7 @@ module.exports = {
     hot: true,
     contentBase: path.join(__dirname, "dist"),
   },
+  plugins: [new Dotenv()],
   module: {
     rules: [
       {
