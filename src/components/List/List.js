@@ -11,7 +11,8 @@ export const List = ({ items, Component, refName }) => {
       {items.map((item, index) => {
         const penName = item.writer.penName;
         if (colorMap[penName] === undefined) {
-          colorMap[item.writer.penName] = colors.pop();
+          colorMap[item.writer.penName] =
+            colors[Math.floor(Math.random() * colors.length)];
         }
         return (
           <Component

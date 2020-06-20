@@ -32,10 +32,10 @@ export const registerForm = (handleSubmit, setFormType) => {
   return (
     <Form
       initState={{
-        penName: "laursy",
-        email: "laursy@laura.com",
-        password: "123456",
-        password2: "123456",
+        penName: "",
+        email: "",
+        password: "",
+        password2: "",
       }}
       btnName="create"
       handleSubmit={handleSubmit}
@@ -109,8 +109,8 @@ export const loginForm = (handleSubmit, setFormType) => {
   return (
     <Form
       initState={{
-        email: "hickok@storii.com",
-        password: "Hickok",
+        email: "",
+        password: "",
       }}
       btnName="login"
       handleSubmit={handleSubmit}
