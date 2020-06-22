@@ -2,8 +2,10 @@
 @import "../../scss-themes/sizes.scss";
 
 .alert {
-  position: sticky;
-  width: 100vw;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
   padding: 2px 0px;
   overflow-x: hidden;
   font-size: $mediumFont;
@@ -15,7 +17,9 @@
 }
 
 .event {
-  background: $soft-green;
+  opacity: 0.7;
+  border: $soft-green 2px solid;
+  background: $light-soft-green;
 }
 
 @media (min-width: 768px) {

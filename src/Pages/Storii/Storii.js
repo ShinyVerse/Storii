@@ -68,7 +68,7 @@ export const Storii = ({
           setAlert("new message!", "event");
           setTimeout(() => {
             clearAlert();
-          }, 2000);
+          }, 2500);
         }
       }
 
