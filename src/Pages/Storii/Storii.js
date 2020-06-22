@@ -49,7 +49,7 @@ export const Storii = ({
     try {
       if (process.env.NODE_ENV === "production") {
         await getStorii("5eec96f102ac44ab161b3b14");
-      } else {
+      } else if (process.env.NODE_ENV === "development") {
         await getStorii("5ec66337ac935260a11e1388");
       }
     } catch (err) {
