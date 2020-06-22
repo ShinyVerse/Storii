@@ -47,7 +47,11 @@ export const Storii = ({
 
   const loadEntries = async () => {
     try {
-      await getStorii("5ec66337ac935260a11e1388");
+      if (process.env.NODE_ENV === "production") {
+        await getStorii("5eec96f102ac44ab161b3b14");
+      } else {
+        await getStorii("5ec66337ac935260a11e1388");
+      }
     } catch (err) {
       setAlert(err.msg);
     }
