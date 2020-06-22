@@ -10,6 +10,12 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     // publicPath: "/",
   },
+  // performance: {
+  //   hints: false,
+  // },
+  optimization: {
+    minimize: true,
+  },
   devServer: {
     hot: true,
     contentBase: path.join(__dirname, "dist"),
