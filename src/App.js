@@ -1,12 +1,12 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.scss";
 import { Provider } from "react-redux";
 
-import LandingPage from "./Pages/LandingPage/LandingPage";
-import Storii from "./Pages/Storii/Storii";
 import Alert from "./components/Alert/Alert";
 import store from "./store";
+const LandingPage = lazy(() => import("./Pages/LandingPage/LandingPage"));
+const Storii = lazy(() => import("./Pages/Storii/Storii"));
 
 export default function App() {
   return (
@@ -14,10 +14,12 @@ export default function App() {
       <div id="app">
         <Alert />
         <Router>
-          <Switch>
-            <Route exact path="/" component={LandingPage} />
-            <Route exact path="/storii" component={Storii} />
-          </Switch>
+          <Suspense fallback={<div className="container"></div>}>
+            <Switch>
+              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/storii" component={Storii} />
+            </Switch>
+          </Suspense>
         </Router>
       </div>
     </Provider>
