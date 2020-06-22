@@ -169,6 +169,39 @@ describe("Form", () => {
     expect(onSubmitSpy).toHaveBeenCalledTimes(1);
     expect(onSubmitSpy).toHaveBeenCalledWith({ testInput: "CHANGED" });
   });
+
+  it("if clearData attr set to true, form will revert to initial Data", () => {
+    defaultProps.initState.testInput = "";
+
+    const wrapper = shallow(
+      <Form {...defaultProps} clearData={true}>
+        {({ state, onChange }) => {
+          return (
+            <input
+              data-test="testInput"
+              name="testInput"
+              value={state.testInput}
+              onChange={onChange}
+            />
+          );
+        }}
+      </Form>,
+    );
+
+    let inputElement = wrapper.find('[data-test="testInput"]');
+
+    inputElement.simulate("change", {
+      target: { name: "testInput", value: "CHANGED" },
+    });
+
+    const submitElement = wrapper.find('[data-test="submit"]');
+
+    submitElement.simulate("click");
+
+    inputElement = wrapper.find('[data-test="testInput"]');
+
+    expect(inputElement.prop("value")).toBe("");
+  });
 });
 
 // Login/Regsiter form

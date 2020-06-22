@@ -33,6 +33,10 @@ export const Form = (props) => {
 
   const onSubmit = () => {
     props.handleSubmit(state);
+
+    if (props.clearData) {
+      setState({ ...props.initState });
+    }
   };
 
   return (

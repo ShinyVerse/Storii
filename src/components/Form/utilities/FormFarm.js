@@ -11,6 +11,7 @@ export const entryForm = (handleSubmit, user) => {
       btnName="add"
       handleSubmit={handleSubmit}
       css="top-margin"
+      clearData={true}
     >
       {({ state, onChange }) => {
         return (

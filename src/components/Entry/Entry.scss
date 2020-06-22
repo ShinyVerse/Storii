@@ -2,9 +2,12 @@
 @import "../../scss-themes/sizes.scss";
 
 .entry {
-  border-bottom: 2px dotted $soft-grey;
   margin: 8px 2px;
   font-size: $mediumFont;
+}
+
+.entry-container {
+  border-bottom: 2px dotted $soft-grey;
 }
 
 .writer {
