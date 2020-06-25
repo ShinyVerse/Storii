@@ -1,21 +1,3 @@
-Storii
-
-As a user
-I want to see the story on the page
-So that I know where it's up to
-
-As a user
-I want to be able to submit a new part of the story
-So that the story can grow
-
-As a user
-I want to see my story entry
-To know that it has been added
-
-As a user
-I want to be able to scroll
-So that I can see past points of the story
-
 # Storii
 
 So you have an idea for a story and you've written your first line. Wouldn't it be great to collobarte and get a community to contribute to your work? As your contributes create entries to your story, see the seeds of your story grow as they twist and turn before you creating adventures never before thought of. Who knows where your next story will lead you? Let's create memories, let's create Storiis, together.
@@ -33,6 +15,7 @@ So you have an idea for a story and you've written your first line. Wouldn't it 
 - [Tech stack](#tech-stack)
 - [A bit about us](#a-bit-about-us)
 - [Extra notes](#extra-notes)
+- [User stories](#user-stories)
 
 ## Installation
 
@@ -111,3 +94,23 @@ We took the time to really discuss what our MVP should be and what it should loo
 ## Extra notes
 
 This project was done entirely remotely which allowed us practice pairing and remote working. Altogether it's been very productive so far and demonstrated that even when working remotely we can still get stuff done. Putting real thought into the structure, naming and placement of files in this repo was great fun and has paid off in dividends as it is very intuitive where any file should be. We will apply this same thought process as the application grows further.
+
+## User Stories
+
+Storii
+
+As a user
+I want to see the story on the page
+So that I know where it's up to
+
+As a user
+I want to be able to submit a new part of the story
+So that the story can grow
+
+As a user
+I want to see my story entry
+To know that it has been added
+
+As a user
+I want to be able to scroll
+So that I can see past points of the story
