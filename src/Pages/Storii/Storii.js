@@ -75,6 +75,16 @@ export const Storii = ({
       const updatedEntries = [...entries, message];
       setEntries(updatedEntries);
     });
+    ws.on("entry-deleted", (entryInfo) => {
+      const updatedEntries = entries.filter(
+        (entry) => entry._id !== entryInfo.entryId,
+      );
+      setEntries(updatedEntries);
+      setAlert("An entry has been deleted", "event");
+      setTimeout(() => {
+        clearAlert();
+      }, 2500);
+    });
   }, [entries]);
 
   useEffect(() => {
