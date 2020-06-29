@@ -8,6 +8,19 @@ const DummyComponent = (item) => {
 };
 
 describe("List", () => {
+  const items = [
+    {
+      writer: {
+        penName: "Bob",
+      },
+    },
+    {
+      writer: { penName: "Ashe" },
+    },
+  ];
+
+  const authorisedUsers = ["user", "someone"];
+
   it("renders to page with default empty items prop", () => {
     const wrapper = shallow(<List />);
     const listElement = wrapper.find('[data-test="list"]');
@@ -16,36 +29,26 @@ describe("List", () => {
   });
 
   it("renders correct amount of items when given", () => {
-    const items = [
-      {
-        writer: {
-          penName: "Bob",
-        },
-      },
-      {
-        writer: { penName: "Ashe" },
-      },
-    ];
-
-    const wrapper = shallow(<List items={items} Component={DummyComponent} />);
+    const wrapper = shallow(
+      <List
+        items={items}
+        authorisedUsers={authorisedUsers}
+        Component={DummyComponent}
+      />,
+    );
     const listItemElement = wrapper.find('[data-test="list-item"]');
 
     expect(listItemElement.length).toBe(2);
   });
 
   it("renders correct info to each child Component", () => {
-    const items = [
-      {
-        writer: {
-          penName: "Bob",
-        },
-      },
-      {
-        writer: { penName: "Ashe" },
-      },
-    ];
-
-    const wrapper = shallow(<List items={items} Component={DummyComponent} />);
+    const wrapper = shallow(
+      <List
+        items={items}
+        authorisedUsers={authorisedUsers}
+        Component={DummyComponent}
+      />,
+    );
     const listItemElements = wrapper.find('[data-test="list-item"]');
 
     listItemElements.forEach((element, index) => {
