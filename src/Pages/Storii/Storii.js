@@ -101,7 +101,7 @@ export const Storii = ({
       entryId,
     };
 
-    ws.emit("edit-entry", entryInfo);
+    ws.emit("deleteEntry", entryInfo);
   };
 
   return (
