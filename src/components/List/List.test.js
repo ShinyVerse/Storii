@@ -19,7 +19,7 @@ describe("List", () => {
     },
   ];
 
-  const authorisedUsers = ["user", "someone"];
+  const authorisedUsers = ["ownerId", "currentUserId"];
 
   it("renders to page with default empty items prop", () => {
     const wrapper = shallow(<List />);
