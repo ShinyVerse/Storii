@@ -95,7 +95,14 @@ export const Storii = ({
     scrollToBottom();
   };
 
-  console.log("WHAT IS USER?", user);
+  const deleteEntry = (entryId) => {
+    const entryInfo = {
+      storiiId: storii._id,
+      entryId,
+    };
+
+    ws.emit("edit-entry", entryInfo);
+  };
 
   return (
     <div className="splitview-container-start">
@@ -106,6 +113,7 @@ export const Storii = ({
             Component={Entry}
             refName={bottomOfEntries}
             authorisedUsers={[storii.owner, user._id]}
+            handleDelete={deleteEntry}
           />
         )}
       </div>

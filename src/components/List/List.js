@@ -8,7 +8,13 @@ const canUpdate = (users, writerId) => {
   return users.includes(writerId);
 };
 
-export const List = ({ items, Component, refName, authorisedUsers }) => {
+export const List = ({
+  items,
+  Component,
+  refName,
+  authorisedUsers,
+  handleDelete,
+}) => {
   items.map((item) => {
     const penName = item.writer.penName;
     if (colorMap[penName] === undefined) {
@@ -21,13 +27,22 @@ export const List = ({ items, Component, refName, authorisedUsers }) => {
     <div className="list" data-test="list">
       {items.map((item, index) => {
         const penName = item.writer.penName;
+
+        let additionalProps = {};
+
+        if (canUpdate(authorisedUsers, item.writer._id)) {
+          additionalProps = {
+            canUpdate: true,
+            handleDelete: handleDelete,
+          };
+        }
         return (
           <Component
             data-test="list-item"
             key={`list-item-${index}`}
             item={item}
             color={colorMap[penName]}
-            canUpdate={canUpdate(authorisedUsers, item.writer._id)}
+            {...additionalProps}
           />
         );
       })}
