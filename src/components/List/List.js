@@ -4,7 +4,11 @@ import "./List.scss";
 const colorMap = {};
 const colors = ["pink", "red", "green", "blue", "orange"];
 
-export const List = ({ items, Component, refName }) => {
+const canUpdate = (users, writerId) => {
+  return users.includes(writerId);
+};
+
+export const List = ({ items, Component, refName, authorisedUsers }) => {
   items.map((item) => {
     const penName = item.writer.penName;
     if (colorMap[penName] === undefined) {
@@ -12,6 +16,7 @@ export const List = ({ items, Component, refName }) => {
         colors[Math.floor(Math.random() * colors.length)];
     }
   });
+
   return (
     <div className="list" data-test="list">
       {items.map((item, index) => {
@@ -22,6 +27,7 @@ export const List = ({ items, Component, refName }) => {
             key={`list-item-${index}`}
             item={item}
             color={colorMap[penName]}
+            canUpdate={canUpdate(authorisedUsers, item.writer._id)}
           />
         );
       })}

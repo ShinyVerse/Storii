@@ -110,8 +110,8 @@ export const loginForm = (handleSubmit, setFormType) => {
   return (
     <Form
       initState={{
-        email: "",
-        password: "",
+        email: "nima@storii.com",
+        password: "Nimzy",
       }}
       btnName="login"
       handleSubmit={handleSubmit}

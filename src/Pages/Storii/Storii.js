@@ -95,11 +95,18 @@ export const Storii = ({
     scrollToBottom();
   };
 
+  console.log("WHAT IS USER?", user);
+
   return (
     <div className="splitview-container-start">
       <div className="scrollable-container">
-        {storii && (
-          <List items={entries} Component={Entry} refName={bottomOfEntries} />
+        {storii && user && (
+          <List
+            items={entries}
+            Component={Entry}
+            refName={bottomOfEntries}
+            authorisedUsers={[storii.owner, user._id]}
+          />
         )}
       </div>
       <div className="sticky-form">
